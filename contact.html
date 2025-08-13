@@ -1,0 +1,257 @@
+<!-- TEMPLATE FOR ALL HTML PAGES -->
+<!-- Apply this same structure to: index.html, research.html, team.html, publications.html, contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - [Page Description]">
+    <title>AI-THENA Lab - [Page Name]</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Inline styles for immediate effect */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .lab-logo {
+            height: 40px;
+            width: auto;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            background-clip: initial;
+        }
+        /* Ensure header is visible */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 70px;
+        }
+        main {
+            padding-top: 70px;
+        }
+        /* Hide empty sections */
+        .content-section:empty {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <!-- Will be populated by JavaScript -->
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <!-- Will be populated by JavaScript, but include as fallback -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <section class="content-section contact-form-section">
+                    <h2 class="section-title">Send us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="collaboration">Research Collaboration</option>
+                                <option value="positions">Open Positions</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="media">Media Request</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <p class="form-status" id="form-status"></p>
+                    </form>
+                </section>
+
+                <!-- Contact Information -->
+                <section class="content-section contact-info-section">
+                    <h2 class="section-title">Contact Information</h2>
+                    <div class="contact-info-grid">
+                        <div class="contact-item">
+                            <h3>📧 Email</h3>
+                            <p id="contact-email"></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>📍 Location</h3>
+                            <p id="contact-location"></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>💻 GitHub</h3>
+                            <p><a href="#" id="contact-github"></a></p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>🕐 Office Hours</h3>
+                            <p>Monday - Friday<br>9:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Map placeholder -->
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <p>🗺️ Interactive Map</p>
+                            <p>University Campus Location</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Additional Info -->
+            <section class="content-section">
+                <h2 class="section-title">Opportunities</h2>
+                <div class="opportunities-grid">
+                    <div class="opportunity-card">
+                        <h3>PhD Positions</h3>
+                        <p>We're looking for motivated PhD students to join our research team. Applications are reviewed on a rolling basis.</p>
+                        <a href="#" class="opportunity-link">Learn More →</a>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3>Postdoc Positions</h3>
+                        <p>Postdoctoral positions are available for researchers with strong backgrounds in AI and machine learning.</p>
+                        <a href="#" class="opportunity-link">Learn More →</a>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3>Visiting Researchers</h3>
+                        <p>We welcome visiting researchers and scholars for collaborative projects and knowledge exchange.</p>
+                        <a href="#" class="opportunity-link">Learn More →</a>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3>Industry Collaboration</h3>
+                        <p>Partner with us on cutting-edge AI research projects and technology transfer opportunities.</p>
+                        <a href="#" class="opportunity-link">Learn More →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="content-section">
+                <!-- <h2 class="section-title">Frequently Asked Questions</h2> -->
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>How can I apply for a PhD position?</summary>
+                        <p>PhD applications are processed through the university's graduate admissions system. Please visit the graduate school website for application requirements and deadlines.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you offer internship opportunities?</summary>
+                        <p>Yes, we offer summer internship programs for undergraduate and graduate students. Applications typically open in January for the following summer.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can I visit the lab?</summary>
+                        <p>We welcome visitors! Please contact us in advance to schedule a lab tour and meet with our researchers.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How can I collaborate with your lab?</summary>
+                        <p>We're always open to collaboration opportunities. Please send us a detailed proposal outlining your research interests and potential collaboration areas.</p>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+    
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+    
+    <!-- Load page-specific JavaScript last -->
+    <!-- For index.html: <script src="js/home.js"></script> -->
+    <!-- For research.html: <script src="js/research.js"></script> -->
+    <!-- For team.html: <script src="js/team.js"></script> -->
+    <!-- For publications.html: <script src="js/publications.js"></script> -->
+    <script src="js/contact.js"></script>
+</body>
+</html>

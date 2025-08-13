@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - Our Team">
+    <title>AI-THENA Lab - Team</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/additional.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Team</h1>
+                <p>Meet the brilliant minds driving our research forward</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Faculty Section -->
+            <section class="content-section">
+                <h2 class="section-title">Faculty</h2>
+                <div class="team-grid" id="faculty-grid">
+                    <!-- Faculty members will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Research Team (Postdocs) -->
+            <section class="content-section">
+                <h2 class="section-title">Research Team</h2>
+                <div class="team-grid" id="team-grid">
+                    <!-- Postdocs will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- PhD Students -->
+            <section class="content-section">
+                <h2 class="section-title">PhD Students</h2>
+                <div class="students-grid">
+                    <!-- PhD students will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Masters Students -->
+            <section class="content-section">
+                <h2 class="section-title">Masters Students</h2>
+                <div class="students-grid masters-grid">
+                    <!-- Masters students will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Research Staff -->
+            <section class="content-section">
+                <h2 class="section-title">Research Staff</h2>
+                <div class="team-grid staff-grid">
+                    <!-- Staff members will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Visiting Researchers -->
+            <section class="content-section">
+                <h2 class="section-title">Visiting Researchers</h2>
+                <div class="team-grid visiting-grid">
+                    <!-- Visiting researchers will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Alumni -->
+            <section class="content-section">
+                <h2 class="section-title">Notable Alumni</h2>
+                <div class="alumni-list">
+                    <!-- Alumni will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Join Us -->
+            <section class="content-section cta-section">
+                <h2 class="section-title">Join Our Team</h2>
+                <p class="section-intro">
+                    We're always looking for talented researchers and students passionate about AI.
+                </p>
+                <!-- Open positions will be inserted here by JavaScript -->
+                <div class="cta-buttons">
+                    <a href="contact.html#opportunities" class="cta-button">View Opportunities</a>
+                    <a href="contact.html" class="cta-button-outline">Get in Touch</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Load configuration files FIRST -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+    
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+    
+    <!-- Load page-specific JavaScript -->
+    <script src="js/team.js"></script>
+</body>
+</html>

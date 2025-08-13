@@ -1,0 +1,187 @@
+<!-- TEMPLATE FOR ALL HTML PAGES -->
+<!-- Apply this same structure to: index.html, research.html, team.html, publications.html, contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - [Page Description]">
+    <title>AI-THENA Lab - [Page Name]</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <!-- Will be populated by JavaScript -->
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <!-- Will be populated by JavaScript, but include as fallback -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Publications</h1>
+                <p>Our contributions to the scientific community</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-controls">
+                    <select class="filter-select" id="year-filter">
+                        <option value="all">All</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                    <button class="filter-btn" data-filter="journal">Journals</button>
+                    <button class="filter-btn" data-filter="conference">Conferences</button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="publication-search" placeholder="Search publications...">
+                </div>
+            </section>
+
+            <!-- Publications List -->
+            <section class="content-section">
+                <h2 class="section-title">Recent Publications</h2>
+                <div class="publications-stats">
+                    <p>Total Publications: <strong id="total-publications">0</strong> |
+                        Journal Papers: <strong id="total-journals">0</strong> |
+                        Conference Papers: <strong id="total-conferences">0</strong></p>
+                </div>
+
+                <div id="publications-list">
+                    <!-- Publications will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Featured Publications -->
+            <section class="content-section">
+                <h2 class="section-title">Featured Work</h2>
+                <div class="featured-publications">
+                    <div class="featured-pub">
+                        <div class="pub-badge">Best Paper Award</div>
+                        <h3>Breakthrough in Neural Architecture Search</h3>
+                        <p class="pub-authors">Author 1, Author 2, Author 3</p>
+                        <p class="pub-venue">NeurIPS 2024</p>
+                        <p class="pub-abstract">This groundbreaking work introduces a novel approach to neural
+                            architecture search that reduces computational requirements by 90% while maintaining
+                            state-of-the-art performance...</p>
+                        <div class="pub-links">
+                            <a href="#" class="pub-link">PDF</a>
+                            <a href="#" class="pub-link">arXiv</a>
+                            <a href="#" class="pub-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publication Metrics -->
+            <section class="content-section">
+                <h2 class="section-title">Impact & Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>1,250+</h3>
+                        <p>Total Citations</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>32</h3>
+                        <p>h-index</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>15</h3>
+                        <p>Awards Received</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>8</h3>
+                        <p>Best Paper Awards</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Download Section
+            <section class="content-section">
+                <h2 class="section-title">Resources</h2>
+                <div class="download-section">
+                    <a href="#" class="download-btn">📄 Download Complete Publication List (PDF)</a>
+                    <a href="#" class="download-btn">📊 Download BibTeX File</a>
+                </div>
+            </section> -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+
+    <!-- Load page-specific JavaScript last -->
+    <!-- For index.html: <script src="js/home.js"></script> -->
+    <!-- For research.html: <script src="js/research.js"></script> -->
+    <!-- For team.html: <script src="js/team.js"></script> -->
+    <script src="js/publications.js"></script>
+    <!-- For contact.html: <script src="js/contact.js"></script> -->
+</body>
+
+</html>

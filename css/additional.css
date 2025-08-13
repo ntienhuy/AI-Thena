@@ -1,0 +1,510 @@
+/* ===== ADDITIONAL STYLES FOR DYNAMIC CONTENT ===== */
+
+/* Ensure consistent header across all pages */
+body {
+    padding-top: 0; /* Remove any default body padding */
+}
+
+/* Container consistent spacing */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ensure nav elements are vertically centered */
+nav .container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Highlights List */
+.highlights-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.highlight-item {
+    padding: 0.5rem;
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* Enhanced News Items */
+.news-content-wrapper {
+    flex: 1;
+}
+
+.news-title {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.news-link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    display: inline-block;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+/* News Category Badges */
+.news-award .news-date {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.news-funding .news-date {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+}
+
+.news-collaboration .news-date {
+    background: linear-gradient(45deg, #2196f3, #42a5f5);
+}
+
+.news-team .news-date {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+}
+
+/* Quick Links Grid */
+.quick-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.quick-link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.quick-link-icon {
+    font-size: 2rem;
+}
+
+.quick-link-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Research Card Enhancements */
+.research-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.research-lead {
+    font-weight: 500;
+}
+
+.research-pubs {
+    color: #667eea;
+}
+
+.research-keywords {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.keyword-tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+/* Enhanced Stat Cards */
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.stat-card:hover::before {
+    animation: shimmer 1s ease;
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(45deg) translateY(0); }
+    100% { transform: rotate(45deg) translateY(100%); }
+}
+
+/* Footer Enhancements */
+.footer-bottom-links {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: white;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments for dynamic content */
+@media (max-width: 768px) {
+    .highlights-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .research-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .news-date {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-bottom-links a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* ===== TEAM PAGE ADDITIONAL STYLES ===== */
+
+/* Hide empty sections by default */
+.content-section:empty,
+.content-section:has(.team-grid:empty),
+.content-section:has(.students-grid:empty),
+.content-section:has(.alumni-list:empty) {
+    display: none !important;
+}
+
+/* Ensure sections with only title are also hidden */
+.content-section {
+    min-height: auto;
+}
+
+/* Better grid layouts for different team sections */
+.students-grid,
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.visiting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Enhanced student cards */
+.student-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.student-info h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.student-topic {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.student-year {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.student-advisor {
+    color: #667eea;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.student-email a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.student-email a:hover {
+    text-decoration: underline;
+}
+
+.student-program {
+    background: rgba(102, 126, 234, 0.1);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+/* Enhanced alumni items */
+.alumni-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+.alumni-item:hover {
+    background: #f8f9fa;
+}
+
+.alumni-item:last-child {
+    border-bottom: none;
+}
+
+.alumni-item h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.alumni-item p {
+    color: #666;
+    line-height: 1.5;
+}
+
+.alumni-current {
+    color: #667eea;
+    font-weight: 500;
+    margin-top: 0.3rem;
+}
+
+/* Visiting researcher specific styles */
+.institution {
+    color: #666;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.duration {
+    background: rgba(102, 126, 234, 0.1);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #667eea;
+    margin: 0.5rem 0;
+}
+
+.host {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Opportunities grid in Join Us section */
+.cta-section .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.cta-section .opportunity-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cta-section .opportunity-card:hover {
+    transform: translateY(-5px);
+}
+
+.cta-section .opportunity-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.cta-section .opportunity-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.cta-section .opportunity-card li {
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+/* Loading state for dynamic content */
+.loading-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+}
+
+.loading-placeholder::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .students-grid,
+    .masters-grid,
+    .staff-grid,
+    .visiting-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-section .opportunities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .student-card {
+        padding: 1rem;
+    }
+    
+    .alumni-item {
+        padding: 1rem;
+    }
+}
+
+/* Empty state messages */
+.empty-message {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Fix for sections that should remain visible even if partially empty */
+.cta-section {
+    display: block !important; /* Always show Join Us section */
+}
+
+/* Ensure proper spacing when sections are hidden */
+.content-section + .content-section {
+    margin-top: 2rem;
+}
+
+/* Animation for dynamically added content */
+.team-member,
+.student-card,
+.alumni-item {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - Member Profile">
+    <title>AI-THENA Lab - Member Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <link rel="stylesheet" href="css/member-profile.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <div class="container">
+                <a href="index.html">Home</a> / 
+                <a href="team.html">Team</a> / 
+                <span id="breadcrumb-name">Member Name</span>
+            </div>
+        </div>
+
+        <!-- Member Hero Section -->
+        <section class="member-hero">
+            <div class="container">
+                <div class="member-hero-content">
+                    <div class="member-photo-container">
+                        <img id="member-photo" src="images/team/placeholder.jpg" alt="Member Photo" 
+                             onerror="handleImageError(this)" class="member-profile-photo">
+                        <div class="member-social-links">
+                            <a href="#" id="link-email" title="Email"><span>✉️</span></a>
+                            <a href="#" id="link-scholar" title="Google Scholar" target="_blank"><span>🎓</span></a>
+                            <a href="#" id="link-github" title="GitHub" target="_blank"><span>💻</span></a>
+                            <a href="#" id="link-linkedin" title="LinkedIn" target="_blank"><span>💼</span></a>
+                            <a href="#" id="link-twitter" title="Twitter" target="_blank"><span>🐦</span></a>
+                            <a href="#" id="link-website" title="Personal Website" target="_blank"><span>🌐</span></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h1 id="member-name">Dr. Sarah Chen</h1>
+                        <h2 id="member-role">Lab Director & Professor</h2>
+                        <div class="member-badges">
+                            <span class="badge badge-faculty">Faculty</span>
+                            <span class="badge badge-active">Active</span>
+                        </div>
+                        <div class="member-quick-info">
+                            <div class="info-item">
+                                <span class="info-label">📍 Office:</span>
+                                <span id="member-office">CSB 301</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">📧 Email:</span>
+                                <a href="#" id="member-email">s.chen@university.edu</a>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">📞 Phone:</span>
+                                <span id="member-phone">+1 (555) 123-4567</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🕐 Office Hours:</span>
+                                <span id="member-hours">By appointment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="profile-layout">
+                <!-- Main Content -->
+                <div class="profile-main">
+                    <!-- Biography Section -->
+                    <section class="content-section">
+                        <h2 class="section-title">Biography</h2>
+                        <div id="member-bio" class="bio-content">
+                            <p>Dr. Sarah Chen is the founding director of AI-THENA Lab. Her research focuses on neural architecture search and efficient deep learning. She received her PhD from MIT and has published over 100 papers in top-tier conferences.</p>
+                            <p>Prior to founding the lab, she worked as a Research Scientist at Google DeepMind where she contributed to several breakthrough projects in automated machine learning. Her work has been recognized with numerous awards including the NSF CAREER Award and the MIT TR35.</p>
+                        </div>
+                    </section>
+
+                    <!-- Research Interests -->
+                    <section class="content-section">
+                        <h2 class="section-title">Research Interests</h2>
+                        <div id="research-interests" class="interests-grid">
+                            <div class="interest-item">
+                                <span class="interest-icon">🧠</span>
+                                <div>
+                                    <h4>Neural Architecture Search</h4>
+                                    <p>Automating the design of neural networks</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <span class="interest-icon">⚡</span>
+                                <div>
+                                    <h4>Efficient AI</h4>
+                                    <p>Model compression and edge deployment</p>
+                                </div>
+                            </div>
+                            <div class="interest-item">
+                                <span class="interest-icon">🔬</span>
+                                <div>
+                                    <h4>AutoML</h4>
+                                    <p>Automated machine learning systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Publications -->
+                    <section class="content-section">
+                        <h2 class="section-title">Selected Publications</h2>
+                        <div class="publications-stats">
+                            <span>📚 Total: <strong id="pub-count">45</strong></span>
+                            <span>📖 Citations: <strong id="citation-count">2,500+</strong></span>
+                            <span>📊 h-index: <strong id="h-index">28</strong></span>
+                        </div>
+                        <div id="member-publications" class="publications-list">
+                            <!-- Publications will be populated here -->
+                        </div>
+                        <a href="publications.html" class="view-all-link">View All Publications →</a>
+                    </section>
+
+                    <!-- Current Projects -->
+                    <section class="content-section">
+                        <h2 class="section-title">Current Projects</h2>
+                        <div id="member-projects" class="projects-grid">
+                            <!-- Projects will be populated here -->
+                        </div>
+                    </section>
+
+                    <!-- Teaching -->
+                    <section class="content-section">
+                        <h2 class="section-title">Teaching</h2>
+                        <div id="member-teaching" class="teaching-list">
+                            <div class="teaching-item">
+                                <h4>CS 231: Deep Learning</h4>
+                                <p>Graduate course covering fundamentals of deep neural networks</p>
+                                <span class="course-info">Fall 2024 • 45 students</span>
+                            </div>
+                            <div class="teaching-item">
+                                <h4>CS 532: Advanced Machine Learning</h4>
+                                <p>Advanced topics in machine learning and AI</p>
+                                <span class="course-info">Spring 2024 • 30 students</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Students -->
+                    <section class="content-section">
+                        <h2 class="section-title">Current Students</h2>
+                        <div id="member-students" class="students-grid">
+                            <!-- Students will be populated here -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="profile-sidebar">
+                    <!-- Quick Stats -->
+                    <div class="sidebar-section">
+                        <h3>Quick Stats</h3>
+                        <div class="stats-list">
+                            <div class="stat-item">
+                                <span class="stat-value" id="years-active">15</span>
+                                <span class="stat-label">Years at Lab</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="students-count">12</span>
+                                <span class="stat-label">Current Students</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="papers-count">45</span>
+                                <span class="stat-label">Publications</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="awards-count">8</span>
+                                <span class="stat-label">Awards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="sidebar-section">
+                        <h3>Education</h3>
+                        <div id="member-education" class="education-list">
+                            <div class="education-item">
+                                <div class="degree">PhD in Computer Science</div>
+                                <div class="institution">MIT</div>
+                                <div class="year">2012</div>
+                            </div>
+                            <div class="education-item">
+                                <div class="degree">MS in Computer Science</div>
+                                <div class="institution">Stanford University</div>
+                                <div class="year">2008</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards -->
+                    <div class="sidebar-section">
+                        <h3>Awards & Honors</h3>
+                        <div id="member-awards" class="awards-list">
+                            <div class="award-item">
+                                <span class="award-year">2023</span>
+                                <span class="award-name">Best Paper Award - NeurIPS</span>
+                            </div>
+                            <div class="award-item">
+                                <span class="award-year">2020</span>
+                                <span class="award-name">NSF CAREER Award</span>
+                            </div>
+                            <div class="award-item">
+                                <span class="award-year">2019</span>
+                                <span class="award-name">MIT TR35 Innovator</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download CV -->
+                    <div class="sidebar-section">
+                        <a href="#" id="download-cv" class="download-cv-btn">
+                            📄 Download CV
+                        </a>
+                    </div>
+
+                    <!-- Related Members -->
+                    <div class="sidebar-section">
+                        <h3>Related Members</h3>
+                        <div id="related-members" class="related-members-list">
+                            <!-- Related members will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Team -->
+        <div class="container">
+            <div class="back-navigation">
+                <a href="team.html" class="back-link">← Back to Team</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Load configuration files FIRST -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+    
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+    
+    <!-- Load page-specific JavaScript -->
+    <script src="js/member-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!-- TEMPLATE FOR ALL HTML PAGES -->
+<!-- Apply this same structure to: index.html, research.html, team.html, publications.html, contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - [Page Description]">
+    <title>AI-THENA Lab - [Page Name]</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <!-- Will be populated by JavaScript -->
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <!-- Will be populated by JavaScript, but include as fallback -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Research</h1>
+                <p>Exploring the frontiers of artificial intelligence</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Research Overview -->
+            <section class="content-section">
+                <h2 class="section-title">Research Areas</h2>
+                <p class="section-intro">
+                    Our lab focuses on cutting-edge research in artificial intelligence, combining theoretical foundations with practical applications to solve real-world problems.
+                </p>
+                <div class="research-grid" id="research-grid">
+                    <!-- Research areas will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Current Projects -->
+            <section class="content-section">
+                <h2 class="section-title">Current Projects</h2>
+                <div class="projects-list">
+                    <div class="project-card">
+                        <h3>Project Alpha</h3>
+                        <p class="project-status">Status: <span class="status-active">Active</span></p>
+                        <p>Developing next-generation neural architectures for improved efficiency and interpretability.</p>
+                        <div class="project-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Neural Architecture</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Beta</h3>
+                        <p class="project-status">Status: <span class="status-active">Active</span></p>
+                        <p>Exploring multi-modal learning approaches for enhanced AI understanding.</p>
+                        <div class="project-tags">
+                            <span class="tag">Multi-modal</span>
+                            <span class="tag">Computer Vision</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project Gamma</h3>
+                        <p class="project-status">Status: <span class="status-planning">Planning</span></p>
+                        <p>Investigating ethical AI frameworks for responsible deployment.</p>
+                        <div class="project-tags">
+                            <span class="tag">AI Ethics</span>
+                            <span class="tag">Fairness</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collaborations -->
+            <section class="content-section">
+                <h2 class="section-title">Collaborations</h2>
+                <p class="section-intro">
+                    We actively collaborate with leading institutions and industry partners worldwide to advance AI research.
+                </p>
+                <div class="collaboration-grid">
+                    <div class="collab-card">
+                        <h4>Academic Partners</h4>
+                        <ul>
+                            <li>Stanford AI Lab</li>
+                            <li>MIT CSAIL</li>
+                            <li>Oxford Machine Learning</li>
+                        </ul>
+                    </div>
+                    <div class="collab-card">
+                        <h4>Industry Partners</h4>
+                        <ul>
+                            <li>Tech Corporation A</li>
+                            <li>AI Startup B</li>
+                            <li>Research Institute C</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+   <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+    
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+    
+    <!-- Load page-specific JavaScript last -->
+    <!-- For index.html: <script src="js/home.js"></script> -->
+    <script src="js/research.js"></script>
+    <!-- For team.html: <script src="js/team.js"></script> -->
+    <!-- For publications.html: <script src="js/publications.js"></script> -->
+    <!-- For contact.html: <script src="js/contact.js"></script> -->
+</body>
+</html>

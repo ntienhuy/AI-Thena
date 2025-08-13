@@ -1,0 +1,134 @@
+<!-- TEMPLATE FOR ALL HTML PAGES -->
+<!-- Apply this same structure to: index.html, research.html, team.html, publications.html, contact.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - [Page Description]">
+    <title>AI-THENA Lab - [Page Name]</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <!-- Will be populated by JavaScript -->
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <!-- Will be populated by JavaScript, but include as fallback -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 id="lab-title">Welcome to AI-THENA Lab</h1>
+                <p id="lab-description">Pioneering research in artificial intelligence</p>
+                <a href="research.html" class="cta-button" id="hero-cta">Explore Our Research</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Overview Section -->
+            <section class="content-section">
+                <h2 class="section-title">Welcome to Our Lab</h2>
+                <p class="section-intro" id="welcome-text"></p>
+                <div class="highlights-list" id="highlights-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem;"></div>
+            </section>
+
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Stats will be dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Featured Research Preview -->
+            <section class="content-section">
+                <h2 class="section-title">Featured Research</h2>
+                <div class="research-grid" id="featured-research">
+                    <!-- Will be populated with research areas -->
+                </div>
+                <div class="section-footer">
+                    <a href="research.html" class="view-all-link">View All Research →</a>
+                </div>
+            </section>
+
+            <!-- Recent News/Updates -->
+            <section class="content-section">
+                <h2 class="section-title">Recent Updates</h2>
+                <div class="news-list" id="news-list">
+                    <!-- News items will be dynamically populated -->
+                </div>
+                <div class="section-footer">
+                    <a href="#" class="view-all-link">View All News →</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/config.js"></script>
+    
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+    
+    <!-- Load page-specific JavaScript last -->
+    <script src="js/home.js"></script>
+    <!-- For research.html: <script src="js/research.js"></script> -->
+    <!-- For team.html: <script src="js/team.js"></script> -->
+    <!-- For publications.html: <script src="js/publications.js"></script> -->
+    <!-- For contact.html: <script src="js/contact.js"></script> -->
+</body>
+</html>
