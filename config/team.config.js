@@ -147,7 +147,7 @@ const CONFIG_TEAM = {
         {
             id: "ntienhuy",
             name: "Dr. Nguyen Tien Huy",
-            role: "Faculty Member",
+            role: "Key Member",
             initials: "",
             image: "images/teams/huy_nguyen.jpg",
             email: "ntienhuy@fit.hcmus.edu.vn",
@@ -175,7 +175,7 @@ const CONFIG_TEAM = {
         {
             id: "lttung",
             name: "Dr. Le Thanh Tung",
-            role: "Faculty Member",
+            role: "Key Member",
             initials: "",
             image: "images/teams/tung_le.jpg",
             email: "lttung@fit.hcmus.edu.vn",

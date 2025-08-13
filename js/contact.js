@@ -62,11 +62,9 @@ function setContactInformation() {
         const locationParts = [
             addr.line1,
             addr.line2,
-            addr.street,
-            `${addr.city}, ${addr.state} ${addr.zip}`,
-            addr.country
+            `${addr.street}, ${addr.city}, ${addr.country}`,
         ].filter(Boolean);
-        locationElement.innerHTML = locationParts.join('<br>');
+        locationElement.innerHTML = locationParts.join('<br><br>');
     }
     
     // Set GitHub

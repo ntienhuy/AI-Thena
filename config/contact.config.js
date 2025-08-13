@@ -12,18 +12,18 @@ const CONFIG_CONTACT = {
         fax: "+1 (555) 123-4568",
         address: {
             line1: "AI-THENA Lab",
-            line2: "Department of Computer Science",
-            line3: "Tech University",
-            street: "123 Innovation Drive",
-            city: "Tech City",
-            state: "TC",
-            zip: "12345",
-            country: "USA"
+            line2: "Faculty of Information Technology",
+            line3: "University of Science, Vietnam National University, Ho Chi Minh City",
+            street: "227 Nguyen Van Cu, Cho Quan Ward, District 5",
+            city: "Ho Chi Minh City",
+            // state: "TC",
+            // zip: "12345",
+            country: "Viet Nam"
         },
-        coordinates: {
-            lat: 37.4419,
-            lng: -122.1430
-        }
+        // coordinates: {
+        //     lat: 37.4419,
+        //     lng: -122.1430
+        // }
     },
     
     // Office Hours
