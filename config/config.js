@@ -17,6 +17,9 @@ if (typeof CONFIG_TEAM === 'undefined') {
 if (typeof CONFIG_PUBLICATIONS === 'undefined') {
     console.error('CONFIG_PUBLICATIONS not loaded');
 }
+if (typeof CONFIG_NEWS === 'undefined') {
+    console.error('CONFIG_NEWS not loaded');
+}
 if (typeof CONFIG_CONTACT === 'undefined') {
     console.error('CONFIG_CONTACT not loaded');
 }
@@ -34,6 +37,7 @@ const CONFIG = {
     research: typeof CONFIG_RESEARCH !== 'undefined' ? CONFIG_RESEARCH : {},
     team: typeof CONFIG_TEAM !== 'undefined' ? CONFIG_TEAM : {},
     publications: typeof CONFIG_PUBLICATIONS !== 'undefined' ? CONFIG_PUBLICATIONS : {},
+    news: typeof CONFIG_NEWS !== 'undefined' ? CONFIG_NEWS : {},
     contact: typeof CONFIG_CONTACT !== 'undefined' ? CONFIG_CONTACT : {},
     
     // Footer configuration

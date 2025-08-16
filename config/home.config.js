@@ -1,4 +1,4 @@
-// ===== HOME PAGE CONFIGURATION =====
+// ===== HOME PAGE CONFIGURATION - UPDATED =====
 
 const CONFIG_HOME = {
     // Hero Section
@@ -29,54 +29,17 @@ const CONFIG_HOME = {
         { key: "yearsOfExcellence", label: "Years of Excellence", icon: "⭐" }
     ],
     
-    // News/Updates Section
-    news: [
-        {
-            date: "Dec 2024",
-            title: "Best Paper Award at NeurIPS 2024",
-            content: "Our paper on Transformer-XL wins Best Paper Award at NeurIPS 2024",
-            link: "#",
-            category: "award"
-        },
-        {
-            date: "Nov 2024",
-            title: "Major NSF Grant Awarded",
-            content: "Lab receives $2M NSF grant for explainable AI research",
-            link: "#",
-            category: "funding"
-        },
-        {
-            date: "Oct 2024",
-            title: "New PhD Students Join",
-            content: "Three talented PhD students join our growing research team",
-            link: "#",
-            category: "team"
-        },
-        {
-            date: "Sep 2024",
-            title: "OpenAI Collaboration",
-            content: "Collaboration announced with OpenAI on AI safety research",
-            link: "#",
-            category: "collaboration"
-        },
-        {
-            date: "Aug 2024",
-            title: "Summer Program Success",
-            content: "Summer internship program concludes with 12 published papers",
-            link: "#",
-            category: "education"
-        },
-        {
-            date: "Jul 2024",
-            title: "New Lab Equipment",
-            content: "Installation of new NVIDIA DGX H100 systems for advanced AI research",
-            link: "#",
-            category: "infrastructure"
-        }
-    ],
-    
     // Featured Research Areas (number of items to show from research areas)
     featuredResearchCount: 2,
+    
+    // News Section Configuration
+    news: {
+        showSection: true,
+        maxItems: 5,
+        title: "Recent Updates",
+        viewAllText: "View All News →",
+        viewAllLink: "news.html"
+    },
     
     // Testimonials
     testimonials: [

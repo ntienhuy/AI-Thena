@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/additional.css">
     <link rel="stylesheet" href="css/member-profile.css">
 </head>
+
 <body>
     <!-- Header & Navigation -->
     <header>
@@ -21,6 +23,7 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="team.html" class="active">Team</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="mobile-menu-toggle">
@@ -38,8 +41,8 @@
         <!-- Breadcrumb Navigation -->
         <div class="breadcrumb">
             <div class="container">
-                <a href="index.html">Home</a> / 
-                <a href="team.html">Team</a> / 
+                <a href="index.html">Home</a> /
+                <a href="team.html">Team</a> /
                 <span id="breadcrumb-name">Member Name</span>
             </div>
         </div>
@@ -49,8 +52,8 @@
             <div class="container">
                 <div class="member-hero-content">
                     <div class="member-photo-container">
-                        <img id="member-photo" src="images/team/placeholder.jpg" alt="Member Photo" 
-                             onerror="handleImageError(this)" class="member-profile-photo">
+                        <img id="member-photo" src="images/team/placeholder.jpg" alt="Member Photo"
+                            onerror="handleImageError(this)" class="member-profile-photo">
                         <div class="member-social-links">
                             <a href="#" id="link-email" title="Email"><span>✉️</span></a>
                             <a href="#" id="link-scholar" title="Google Scholar" target="_blank"><span>🎓</span></a>
@@ -98,8 +101,13 @@
                     <section class="content-section">
                         <h2 class="section-title">Biography</h2>
                         <div id="member-bio" class="bio-content">
-                            <p>Dr. Sarah Chen is the founding director of AI-THENA Lab. Her research focuses on neural architecture search and efficient deep learning. She received her PhD from MIT and has published over 100 papers in top-tier conferences.</p>
-                            <p>Prior to founding the lab, she worked as a Research Scientist at Google DeepMind where she contributed to several breakthrough projects in automated machine learning. Her work has been recognized with numerous awards including the NSF CAREER Award and the MIT TR35.</p>
+                            <p>Dr. Sarah Chen is the founding director of AI-THENA Lab. Her research focuses on neural
+                                architecture search and efficient deep learning. She received her PhD from MIT and has
+                                published over 100 papers in top-tier conferences.</p>
+                            <p>Prior to founding the lab, she worked as a Research Scientist at Google DeepMind where
+                                she contributed to several breakthrough projects in automated machine learning. Her work
+                                has been recognized with numerous awards including the NSF CAREER Award and the MIT
+                                TR35.</p>
                         </div>
                     </section>
 
@@ -286,11 +294,12 @@
     <script src="config/contact.config.js"></script>
     <script src="config/footer.config.js"></script>
     <script src="config/config.js"></script>
-    
+
     <!-- Load common JavaScript AFTER configs -->
     <script src="js/common.js"></script>
-    
+
     <!-- Load page-specific JavaScript -->
     <script src="js/member-profile.js"></script>
 </body>
+
 </html>

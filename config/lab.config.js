@@ -9,9 +9,9 @@ const CONFIG_LAB = {
     labTagline: "Where Intelligence Meets Innovation",
     
     // Lab Details
-    established: 2009,
+    established: 2020,
     affiliation: "Department of Computer Science, Tech University",
-    director: "Prof. Sarah Chen",
+    director: "Dr. Nguyen Tien Huy",
     
     // Lab Statistics (for display purposes)
     stats: {

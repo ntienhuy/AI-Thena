@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - News & Updates">
+    <title>AI-THENA Lab - News</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <style>
+        /* News-specific styles */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .news-date {
+            font-weight: 500;
+        }
+
+        .news-author {
+            color: #667eea;
+        }
+
+        .news-summary {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .news-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .read-more-btn {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            color: #764ba2;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .news-card {
+            position: relative;
+        }
+
+        .filter-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #333;
+            margin-right: 0.5rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .pagination button {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .pagination button.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Category badges with different colors */
+        .news-category.award {
+            background: rgba(255, 215, 0, 0.1);
+            color: #b8860b;
+        }
+
+        .news-category.funding {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+
+        .news-category.publication {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+
+        .news-category.collaboration {
+            background: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+
+        .news-category.team {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+        }
+
+        .news-category.event {
+            background: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .news-category.infrastructure {
+            background: rgba(96, 125, 139, 0.1);
+            color: #607d8b;
+        }
+
+        .news-category.education {
+            background: rgba(139, 195, 74, 0.1);
+            color: #8bc34a;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .news-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 id="page-title">News & Updates</h1>
+                <p id="page-subtitle">Stay updated with our latest research and announcements</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-controls">
+                    <span class="filter-label">Filter by:</span>
+                    <select class="filter-select" id="category-filter">
+                        <option value="all">All Categories</option>
+                        <!-- Categories will be populated by JavaScript -->
+                    </select>
+                    <select class="filter-select" id="year-filter">
+                        <option value="all">All Years</option>
+                        <!-- Years will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="news-search" placeholder="Search news...">
+                </div>
+            </section>
+
+            <!-- All News Section -->
+            <section class="content-section">
+                <h2 class="section-title">All News</h2>
+                <div class="news-grid" id="news-grid">
+                    <!-- News articles will be populated by JavaScript -->
+                </div>
+
+                <!-- No Results Message -->
+                <div id="no-results" class="no-results" style="display: none;">
+                    <p>No news articles found matching your criteria.</p>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Load configuration files FIRST -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/news.config.js"></script>
+    <script src="config/config.js"></script>
+
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+
+    <!-- Load page-specific JavaScript -->
+    <script src="js/news.js"></script>
+</body>
+
+</html>

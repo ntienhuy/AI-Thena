@@ -409,9 +409,9 @@ function createTeamMemberCard(member) {
     
     // Make the card clickable
     card.style.cursor = 'pointer';
-    // card.onclick = function() {
-    //     window.location.href = `member-profile.html?id=${memberId}`;
-    // };
+    card.onclick = function() {
+        window.location.href = `member-profile.html?id=${memberId}`;
+    };
     
     const initials = member.initials || getInitials(member.name);
     
@@ -433,7 +433,7 @@ function createTeamMemberCard(member) {
     
   
     // Add "View Profile" link
-    //cardHTML += `<a href="member-profile.html?id=${memberId}" class="view-profile-link" style="color: #667eea; text-decoration: none; font-weight: 600; margin-top: 0.5rem; display: inline-block;">View Profile →</a>`;
+    cardHTML += `<a href="member-profile.html?id=${memberId}" class="view-profile-link" style="color: #667eea; text-decoration: none; font-weight: 600; margin-top: 0.5rem; display: inline-block;">View Profile →</a>`;
 
     card.innerHTML = cardHTML;
     return card;

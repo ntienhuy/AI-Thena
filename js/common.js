@@ -1,4 +1,4 @@
-// ===== COMMON JAVASCRIPT FILE - COMPLETE FIX =====
+// ===== COMMON JAVASCRIPT FILE - UPDATED WITH NEWS =====
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -72,7 +72,7 @@ function initializeLabHeader() {
     labNameElement.style.gap = '0.5rem';
 }
 
-// Initialize Navigation Menu
+// Initialize Navigation Menu (Updated to include News)
 function initializeNavigation() {
     const navElement = document.querySelector('.nav-links');
     if (!navElement) return;
@@ -81,12 +81,13 @@ function initializeNavigation() {
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
     
-    // Create navigation HTML
+    // Create navigation HTML with News included
     const navHTML = `
         <li><a href="index.html" class="${(currentPage === 'index.html' || currentPage === '') ? 'active' : ''}">Home</a></li>
         <li><a href="research.html" class="${currentPage === 'research.html' ? 'active' : ''}">Research</a></li>
         <li><a href="team.html" class="${currentPage === 'team.html' ? 'active' : ''}">Team</a></li>
         <li><a href="publications.html" class="${currentPage === 'publications.html' ? 'active' : ''}">Publications</a></li>
+        <li><a href="news.html" class="${(currentPage === 'news.html' || currentPage === 'news-article.html') ? 'active' : ''}">News</a></li>
         <li><a href="contact.html" class="${currentPage === 'contact.html' ? 'active' : ''}">Contact</a></li>
     `;
     
@@ -96,7 +97,7 @@ function initializeNavigation() {
     }
 }
 
-// Initialize Footer
+// Initialize Footer (Updated to include News)
 function initializeFooter() {
     // Set footer sections
     const footerContent = document.querySelector('.footer-content');
@@ -123,6 +124,28 @@ function initializeFooter() {
             
             footerContent.appendChild(footerSection);
         });
+    } else {
+        // Default footer with News included
+        if (footerContent && footerContent.children.length === 0) {
+            footerContent.innerHTML = `
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="news.html">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            `;
+        }
     }
     
     // Set footer text
@@ -340,7 +363,6 @@ function initializeAnimationObserver() {
         observer.observe(section);
     });
 }
-
 
 // Export functions for use in other files
 window.createResearchCard = createResearchCard;

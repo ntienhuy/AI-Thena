@@ -604,7 +604,7 @@ const CONFIG_PUBLICATIONS = {
             "arxiv": null,
             "code": null,
             "citations": null
-        }
+        },
     ],
 
     // Filter Options

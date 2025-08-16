@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-THENA Lab - News Article">
+    <title>AI-THENA Lab - News Article</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/additional.css">
+    <style>
+        /* Article-specific styles */
+        .article-hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2rem 0;
+            margin-bottom: 0;
+        }
+
+        .article-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header styles inside content area */
+        .article-header-content {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-summary {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-image {
+            width: 100%;
+            max-width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 2rem 0;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-content h3 {
+            color: #333;
+            font-size: 1.6rem;
+            /* Slightly larger */
+            margin: 2.5rem 0 1.2rem 0;
+            /* More spacing */
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h4 {
+            color: #333;
+            font-size: 1.3rem;
+            /* Slightly larger */
+            margin: 2rem 0 1rem 0;
+            /* More spacing */
+        }
+
+        .article-content p {
+            color: #555;
+            line-height: 1.9;
+            /* Increased line height */
+            margin-bottom: 2rem;
+            /* More spacing between paragraphs */
+            font-size: 1.15rem;
+            /* Slightly larger font */
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 2rem 0;
+            /* More spacing */
+            padding-left: 2.5rem;
+            /* More indentation */
+        }
+
+        .article-content li {
+            color: #555;
+            line-height: 1.7;
+            /* Better line height */
+            margin-bottom: 0.8rem;
+            /* More spacing between list items */
+            font-size: 1.1rem;
+            /* Consistent with paragraph size */
+        }
+
+        .article-content blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .article-links {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .article-links h4 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .article-links a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 0.25rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .article-links a:hover {
+            background: #764ba2;
+        }
+
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            margin-top: 70px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #666;
+        }
+
+        .back-navigation {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .related-news {
+            margin: 3rem 0;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .related-card-content {
+            padding: 1.5rem;
+        }
+
+        .related-card h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .related-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .related-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .related-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Category-specific colors */
+        .article-category.award {
+            background: rgba(255, 215, 0, 0.1);
+            color: #b8860b;
+        }
+
+        .article-category.funding {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+
+        .article-category.publication {
+            background: rgba(33, 150, 243, 0.1);
+            color: #2196f3;
+        }
+
+        .article-category.collaboration {
+            background: rgba(156, 39, 176, 0.1);
+            color: #9c27b0;
+        }
+
+        .article-category.team {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+        }
+
+        .article-category.event {
+            background: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .article-category.infrastructure {
+            background: rgba(96, 125, 139, 0.1);
+            color: #607d8b;
+        }
+
+        .article-category.education {
+            background: rgba(139, 195, 74, 0.1);
+            color: #8bc34a;
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .error-state {
+            text-align: center;
+            padding: 3rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .error-state h3 {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .error-state p {
+            color: #999;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-content {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .article-image {
+                height: 250px;
+                margin: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <div class="logo" id="lab-name">
+                <span>AI-THENA Lab</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html" class="active">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul></ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <div class="container">
+                <a href="index.html">Home</a> /
+                <a href="news.html">News</a> /
+                <span id="breadcrumb-title">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="loading">
+            <div class="container">
+                <p>Loading article...</p>
+            </div>
+        </div>
+
+        <!-- Minimal background section -->
+        <section class="article-hero" id="article-hero" style="display: none;">
+        </section>
+
+        <div class="container" id="article-container" style="display: none;">
+            <!-- Single unified white content area -->
+            <article class="article-content">
+                <!-- Article header inside the same white space -->
+                <div class="article-header-content">
+                    <span id="article-category" class="article-category">Loading...</span>
+                    <h1 id="article-title" class="article-title">Loading Article...</h1>
+                    <div class="article-meta">
+                        <span><span>📅</span> <span id="article-date">Loading...</span></span>
+                        <span><span>✍️</span> <span id="article-author">Loading...</span></span>
+                        <span><span>⏱️</span> <span id="article-read-time">Loading...</span></span>
+                    </div>
+                    <p id="article-summary" class="article-summary">Loading summary...</p>
+                </div>
+
+                <!-- Article Image -->
+                <img id="article-image" src="" alt="" class="article-image" style="display: none;">
+
+                <!-- Article Body Content -->
+                <div id="article-content-body">
+                    <p>Loading content...</p>
+                </div>
+
+                <!-- Article Tags -->
+                <div id="article-tags" class="article-tags" style="display: none;">
+                    <!-- Tags will be populated here -->
+                </div>
+
+                <!-- Article Links -->
+                <div id="article-links" class="article-links" style="display: none;">
+                    <h4>Related Links</h4>
+                    <div id="article-links-container">
+                        <!-- Links will be populated here -->
+                    </div>
+                </div>
+            </article>
+
+            <!-- Back Navigation -->
+            <div class="back-navigation">
+                <a href="news.html" class="back-link">← Back to News</a>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="container" style="display: none;">
+            <div class="error-state">
+                <h3>Article Not Found</h3>
+                <p id="error-message">The article you're looking for could not be found.</p>
+                <a href="news.html" class="back-link">← Back to News</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <p class="footer-bottom" id="footer-text">
+                &copy; 2025 AI-THENA Lab. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Load configuration files FIRST -->
+    <script src="config/lab.config.js"></script>
+    <script src="config/home.config.js"></script>
+    <script src="config/research.config.js"></script>
+    <script src="config/team.config.js"></script>
+    <script src="config/publications.config.js"></script>
+    <script src="config/contact.config.js"></script>
+    <script src="config/footer.config.js"></script>
+    <script src="config/news.config.js"></script>
+    <script src="config/config.js"></script>
+
+    <!-- Load common JavaScript AFTER configs -->
+    <script src="js/common.js"></script>
+
+    <!-- Debug script -->
+    <script>
+        console.log('=== NEWS ARTICLE PAGE DEBUG ===');
+        console.log('1. Page loaded');
+        console.log('2. Checking CONFIG availability...');
+
+        function checkConfigs() {
+            console.log('CONFIG_NEWS defined:', typeof CONFIG_NEWS !== 'undefined');
+            console.log('CONFIG defined:', typeof CONFIG !== 'undefined');
+            if (typeof CONFIG !== 'undefined') {
+                console.log('CONFIG.news exists:', !!CONFIG.news);
+                if (CONFIG.news && CONFIG.news.articles) {
+                    console.log('Articles count:', CONFIG.news.articles.length);
+                    console.log('First 3 article IDs:', CONFIG.news.articles.slice(0, 3).map(a => a.id));
+                }
+            }
+        }
+
+        setTimeout(checkConfigs, 100);
+    </script>
+
+    <!-- Load page-specific JavaScript -->
+    <script src="js/news-article.js"></script>
+</body>
+
+</html>contact.config.js"></script>
+<script src="config/footer.config.js"></script>
+<script src="config/news.config.js"></script>
+<script src="config/config.js"></script>
+
+<!-- Load common JavaScript AFTER configs -->
+<script src="js/common.js"></script>
+
+<!-- Load page-specific JavaScript -->
+<script>
+    // Debug: Check if configs are loading
+    console.log('Script loading order check:');
+    console.log('CONFIG_NEWS defined:', typeof CONFIG_NEWS !== 'undefined');
+    console.log('CONFIG defined:', typeof CONFIG !== 'undefined');
+    if (typeof CONFIG !== 'undefined') {
+        console.log('CONFIG.news exists:', !!CONFIG.news);
+    }
+</script>
+<script src="js/news-article.js"></script>
+</body>
+
+</html>

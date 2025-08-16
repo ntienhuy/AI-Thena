@@ -1,6 +1,8 @@
-// ===== PUBLICATIONS PAGE JAVASCRIPT =====
+// ===== PUBLICATIONS PAGE JAVASCRIPT WITH PAGINATION =====
 let allPublications = [];
 let filteredPublications = [];
+let currentPage = 1;
+let itemsPerPage = 10; // Fixed 10 publications per page
 
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof CONFIG !== 'undefined') {
@@ -32,14 +34,18 @@ function initializePublicationsPage() {
     allPublications = CONFIG.publications?.publications || [];
     filteredPublications = [...allPublications];
     
-    // Display publications
+    // Sort publications by year (newest first)
+    allPublications.sort((a, b) => b.year - a.year);
+    filteredPublications.sort((a, b) => b.year - a.year);
+    
+    // Display publications with pagination
     displayPublications(filteredPublications);
     
     // Update statistics
     updatePublicationStats();
     
-    // Set featured publications
-    setFeaturedPublications();
+    // // Set featured publications
+    // setFeaturedPublications();
     
     // Initialize filters
     initializeFilters();
@@ -48,20 +54,39 @@ function initializePublicationsPage() {
     initializeSearch();
 }
 
+function applyFilter(filter) {
+    let newFilteredPublications = [];
+
+    if (filter === 'all') {
+        newFilteredPublications = [...allPublications];
+    } else if (filter === 'journal') {
+        newFilteredPublications = allPublications.filter(p => p.venueType === 'journal');
+    } else if (filter === 'conference') {
+        newFilteredPublications = allPublications.filter(p => p.venueType === 'conference');
+    } else {
+        // Filter by year
+        newFilteredPublications = allPublications.filter(p => p.year == filter);
+    }
+    
+    filteredPublications = newFilteredPublications;
+    currentPage = 1; // Reset to first page when filtering
+    displayPublications(filteredPublications);
+}
+
 function updatePublicationStats() {
     const totalPubs = document.getElementById('total-publications');
     const totalJournals = document.getElementById('total-journals');
     const totalConferences = document.getElementById('total-conferences');
 
     if (totalPubs && totalJournals && totalConferences) {
-        // Đếm tổng số bài báo
+        // Count total publications
         totalPubs.textContent = allPublications.length;
 
-        // Đếm số lượng bài báo tạp chí
+        // Count journal papers
         const journalCount = allPublications.filter(p => p.venueType === 'journal').length;
         totalJournals.textContent = journalCount;
 
-        // Đếm số lượng bài báo hội nghị
+        // Count conference papers
         const conferenceCount = allPublications.filter(p => p.venueType === 'conference').length;
         totalConferences.textContent = conferenceCount;
     }
@@ -94,41 +119,42 @@ function updatePublicationStats() {
     }
 }
 
-function setFeaturedPublications() {
-    const featuredPubs = document.querySelector('.featured-publications');
-    if (featuredPubs && CONFIG.publications?.featured) {
-        featuredPubs.innerHTML = '';
+// function setFeaturedPublications() {
+//     const featuredPubs = document.querySelector('.featured-publications');
+//     if (featuredPubs && CONFIG.publications?.featured) {
+//         featuredPubs.innerHTML = '';
         
-        CONFIG.publications.featured
-            .filter(pub => pub && pub.title)
-            .slice(0, 2)
-            .forEach(pub => {
-                const featuredDiv = document.createElement('div');
-                featuredDiv.className = 'featured-pub';
+//         CONFIG.publications.featured
+//             .filter(pub => pub && pub.title)
+//             .slice(0, 2)
+//             .forEach(pub => {
+//                 const featuredDiv = document.createElement('div');
+//                 featuredDiv.className = 'featured-pub';
                 
-                const links = [];
-                if (pub.pdf) links.push(`<a href="${pub.pdf}" class="pub-link">PDF</a>`);
-                if (pub.arxiv) links.push(`<a href="${pub.arxiv}" class="pub-link">arXiv</a>`);
-                if (pub.code) links.push(`<a href="${pub.code}" class="pub-link">Code</a>`);
+//                 const links = [];
+//                 if (pub.pdf) links.push(`<a href="${pub.pdf}" class="pub-link">PDF</a>`);
+//                 if (pub.arxiv) links.push(`<a href="${pub.arxiv}" class="pub-link">arXiv</a>`);
+//                 if (pub.code) links.push(`<a href="${pub.code}" class="pub-link">Code</a>`);
                 
-                featuredDiv.innerHTML = `
-                    ${pub.award ? `<div class="pub-badge">${pub.award}</div>` : ''}
-                    <h3>${pub.title}</h3>
-                    ${pub.authors ? `<p class="pub-authors">${pub.authors.join(', ')}</p>` : ''}
-                    ${pub.venue ? `<p class="pub-venue">${pub.venue}</p>` : ''}
-                    ${pub.abstract ? `<p class="pub-abstract">${pub.abstract}</p>` : ''}
-                    ${links.length > 0 ? `<div class="pub-links">${links.join('')}</div>` : ''}
-                `;
+//                 featuredDiv.innerHTML = `
+//                     ${pub.award ? `<div class="pub-badge">${pub.award}</div>` : ''}
+//                     <h3>${pub.title}</h3>
+//                     ${pub.authors ? `<p class="pub-authors">${pub.authors.join(', ')}</p>` : ''}
+//                     ${pub.venue ? `<p class="pub-venue">${pub.venue}</p>` : ''}
+//                     ${pub.abstract ? `<p class="pub-abstract">${pub.abstract}</p>` : ''}
+//                     ${links.length > 0 ? `<div class="pub-links">${links.join('')}</div>` : ''}
+//                 `;
                 
-                featuredPubs.appendChild(featuredDiv);
-            });
-    }
-}
+//                 featuredPubs.appendChild(featuredDiv);
+//             });
+//     }
+// }
 
 function displayPublications(publications) {
     const publicationsList = document.getElementById('publications-list');
+    const paginationContainer = document.getElementById('pagination-container');
 
-     // Sắp xếp các bài báo theo năm từ mới nhất đến cũ nhất
+    // Sort publications by year (newest first)
     publications.sort((a, b) => b.year - a.year);
 
     if (publicationsList) {
@@ -136,50 +162,144 @@ function displayPublications(publications) {
         
         if (publications.length === 0) {
             publicationsList.innerHTML = '<p style="text-align: center; color: #666;">No publications found.</p>';
+            if (paginationContainer) paginationContainer.style.display = 'none';
             return;
         }
         
-        publications.forEach(publication => {
+        // Calculate pagination
+        const totalPages = Math.ceil(publications.length / itemsPerPage);
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentPublications = publications.slice(startIndex, endIndex);
+        
+        // Display current page publications
+        currentPublications.forEach(publication => {
             const pubEntry = createPublicationEntry(publication);
             if (pubEntry) publicationsList.appendChild(pubEntry);
         });
+        
+        // Update pagination info
+        updatePaginationInfo(publications.length, startIndex, endIndex);
+        
+        // Display pagination controls
+        displayPaginationControls(totalPages);
     }
 }
 
-// function initializeFilters() {
-//     const filterBtns = document.querySelectorAll('.filter-btn');
-//     filterBtns.forEach(btn => {
-//         btn.addEventListener('click', function() {
-//             // Remove active from all
-//             filterBtns.forEach(b => b.classList.remove('active'));
-//             // Add active to clicked
-//             this.classList.add('active');
-            
-//             const filter = this.getAttribute('data-filter');
-//             if (filter === 'all') {
-//                 filteredPublications = [...allPublications];
-//             } else if (filter === 'journal') {
-//                 filteredPublications = allPublications.filter(p => p.venueType === 'journal');
-//             } else if (filter === 'conference') {
-//                 filteredPublications = allPublications.filter(p => p.venueType === 'conference');
-//             } else {
-//                 // Year filter
-//                 filteredPublications = allPublications.filter(p => p.year == filter);
-//             }
-            
-//             displayPublications(filteredPublications);
-//         });
-//     });
-// }
+function updatePaginationInfo(totalCount, startIndex, endIndex) {
+    const paginationInfo = document.getElementById('pagination-info');
+    if (paginationInfo) {
+        const actualEndIndex = Math.min(endIndex, totalCount);
+        paginationInfo.textContent = `Showing ${startIndex + 1}-${actualEndIndex} of ${totalCount} publications`;
+    }
+}
+
+function displayPaginationControls(totalPages) {
+    const paginationContainer = document.getElementById('pagination-container');
+    if (!paginationContainer) return;
+    
+    if (totalPages <= 1) {
+        paginationContainer.style.display = 'none';
+        return;
+    }
+    
+    paginationContainer.style.display = 'flex';
+    paginationContainer.innerHTML = '';
+    
+    // Previous button
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'pagination-btn';
+    prevBtn.textContent = '← Previous';
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayPublications(filteredPublications);
+            scrollToTop();
+        }
+    });
+    paginationContainer.appendChild(prevBtn);
+    
+    // Page numbers
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+    
+    // First page
+    if (startPage > 1) {
+        const firstBtn = createPageButton(1, totalPages);
+        paginationContainer.appendChild(firstBtn);
+        if (startPage > 2) {
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.className = 'pagination-ellipsis';
+            paginationContainer.appendChild(ellipsis);
+        }
+    }
+    
+    // Page range
+    for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = createPageButton(i, totalPages);
+        paginationContainer.appendChild(pageBtn);
+    }
+    
+    // Last page
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) {
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.className = 'pagination-ellipsis';
+            paginationContainer.appendChild(ellipsis);
+        }
+        const lastBtn = createPageButton(totalPages, totalPages);
+        paginationContainer.appendChild(lastBtn);
+    }
+    
+    // Next button
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'pagination-btn';
+    nextBtn.textContent = 'Next →';
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayPublications(filteredPublications);
+            scrollToTop();
+        }
+    });
+    paginationContainer.appendChild(nextBtn);
+}
+
+function createPageButton(pageNum, totalPages) {
+    const btn = document.createElement('button');
+    btn.className = 'pagination-btn page-number';
+    btn.textContent = pageNum;
+    if (pageNum === currentPage) {
+        btn.classList.add('active');
+    }
+    btn.addEventListener('click', () => {
+        currentPage = pageNum;
+        displayPublications(filteredPublications);
+        scrollToTop();
+    });
+    return btn;
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
 function initializeFilters() {
     const filterControls = document.querySelector('.filter-controls');
     
-    // Lắng nghe sự kiện click trên toàn bộ container
+    // Listen for click events on the entire container
     filterControls.addEventListener('click', function(e) {
         if (e.target.matches('.filter-btn')) {
-            // Xóa class 'active' khỏi tất cả các nút
+            // Remove 'active' class from all buttons
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            // Thêm class 'active' vào nút vừa được click
+            // Add 'active' class to clicked button
             e.target.classList.add('active');
 
             const filter = e.target.getAttribute('data-filter');
@@ -187,9 +307,9 @@ function initializeFilters() {
         }
     });
 
-    // Lắng nghe sự kiện change trên thẻ <select>
+    // Listen for change events on select elements
     document.querySelector('.filter-select').addEventListener('change', function(e) {
-        // Xóa class 'active' khỏi tất cả các nút khi chọn <select>
+        // Remove 'active' class from all buttons when select is used
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         
         const filter = e.target.value;
@@ -198,19 +318,21 @@ function initializeFilters() {
 }
 
 function applyFilter(filter) {
-    let filteredPublications = [];
+    let newFilteredPublications = [];
 
     if (filter === 'all') {
-        filteredPublications = [...allPublications];
+        newFilteredPublications = [...allPublications];
     } else if (filter === 'journal') {
-        filteredPublications = allPublications.filter(p => p.venueType === 'journal');
+        newFilteredPublications = allPublications.filter(p => p.venueType === 'journal');
     } else if (filter === 'conference') {
-        filteredPublications = allPublications.filter(p => p.venueType === 'conference');
+        newFilteredPublications = allPublications.filter(p => p.venueType === 'conference');
     } else {
-        // Lọc theo năm
-        filteredPublications = allPublications.filter(p => p.year == filter);
+        // Filter by year
+        newFilteredPublications = allPublications.filter(p => p.year == filter);
     }
     
+    filteredPublications = newFilteredPublications;
+    currentPage = 1; // Reset to first page when filtering
     displayPublications(filteredPublications);
 }
 
@@ -227,6 +349,7 @@ function initializeSearch() {
                     (pub.authors && pub.authors.some(a => a.toLowerCase().includes(query))) ||
                     (pub.venue && pub.venue.toLowerCase().includes(query))
                 );
+                currentPage = 1; // Reset to first page when searching
                 displayPublications(searched);
             }
         });

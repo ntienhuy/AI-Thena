@@ -1,14 +1,12 @@
-<!-- TEMPLATE FOR ALL HTML PAGES -->
-<!-- Apply this same structure to: index.html, research.html, team.html, publications.html, contact.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-THENA Lab - [Page Description]">
-    <title>AI-THENA Lab - [Page Name]</title>
+    <meta name="description" content="AI-THENA Lab - Advancing Intelligence Through Human-Enhanced Neural Architectures">
+    <title>AI-THENA Lab - Home</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/additional.css">
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -20,10 +18,11 @@
             </div>
             <ul class="nav-links">
                 <!-- Will be populated by JavaScript, but include as fallback -->
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="publications.html">Publications</a></li>
+                <li><a href="news.html">News</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="mobile-menu-toggle">
@@ -32,8 +31,10 @@
                 <span></span>
             </div>
         </nav>
+        <div class="mobile-menu">
+            <ul></ul>
+        </div>
     </header>
-
 
     <main>
         <!-- Hero Section -->
@@ -71,17 +72,16 @@
                 </div>
             </section>
 
-            <!-- Recent News/Updates -->
+            <!-- Recent News/Updates Section -->
             <section class="content-section">
                 <h2 class="section-title">Recent Updates</h2>
                 <div class="news-list" id="news-list">
                     <!-- News items will be dynamically populated -->
                 </div>
                 <div class="section-footer">
-                    <a href="#" class="view-all-link">View All News →</a>
+                    <a href="news.html" class="view-all-link">View All News →</a>
                 </div>
             </section>
-
         </div>
     </main>
 
@@ -96,6 +96,7 @@
                         <li><a href="research.html">Research</a></li>
                         <li><a href="team.html">Team</a></li>
                         <li><a href="publications.html">Publications</a></li>
+                        <li><a href="news.html">News</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -119,6 +120,7 @@
     <script src="config/publications.config.js"></script>
     <script src="config/contact.config.js"></script>
     <script src="config/footer.config.js"></script>
+    <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
     
     <!-- Load common JavaScript AFTER configs -->
@@ -126,9 +128,5 @@
     
     <!-- Load page-specific JavaScript last -->
     <script src="js/home.js"></script>
-    <!-- For research.html: <script src="js/research.js"></script> -->
-    <!-- For team.html: <script src="js/team.js"></script> -->
-    <!-- For publications.html: <script src="js/publications.js"></script> -->
-    <!-- For contact.html: <script src="js/contact.js"></script> -->
 </body>
 </html>
