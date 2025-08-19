@@ -1,0 +1,545 @@
+/* ===== NEWS PAGE STYLES ===== */
+
+/* News Grid Layout */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* News Cards */
+.news-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.news-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: block;
+}
+
+.news-card-content {
+    padding: 1.5rem;
+}
+
+/* News Categories */
+.news-category {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Category-specific colors */
+.news-category.award {
+    background: rgba(255, 215, 0, 0.1);
+    color: #b8860b;
+}
+
+.news-category.funding {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+}
+
+.news-category.publication {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+}
+
+.news-category.collaboration {
+    background: rgba(156, 39, 176, 0.1);
+    color: #9c27b0;
+}
+
+.news-category.team {
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+}
+
+.news-category.event {
+    background: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+}
+
+.news-category.infrastructure {
+    background: rgba(96, 125, 139, 0.1);
+    color: #607d8b;
+}
+
+.news-category.education {
+    background: rgba(139, 195, 74, 0.1);
+    color: #8bc34a;
+}
+
+/* News Content */
+.news-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.news-date {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.news-author {
+    color: #667eea;
+    font-weight: 500;
+}
+
+.news-summary {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* News Tags */
+.news-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.news-tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Read More Button */
+.read-more-btn {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.read-more-btn:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Featured Badge */
+.featured-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* News List Layout (Alternative) */
+.news-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+.news-item:hover {
+    background: #f8f9fa;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 8px;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item .news-date {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+    min-width: 80px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* News Category Badges in List */
+.news-item .news-award .news-date {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.news-item .news-funding .news-date {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+}
+
+.news-item .news-collaboration .news-date {
+    background: linear-gradient(45deg, #2196f3, #42a5f5);
+}
+
+.news-item .news-team .news-date {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+}
+
+/* News Content Wrapper */
+.news-content-wrapper {
+    flex: 1;
+}
+
+.news-content {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.news-link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+    display: inline-block;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+/* No Results State */
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-style: italic;
+}
+
+.no-results h3 {
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+/* Pagination for News */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    background: white;
+    border: 2px solid #e0e0e0;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.pagination button:hover:not(:disabled) {
+    border-color: #667eea;
+    color: #667eea;
+    background: #f8f9ff;
+}
+
+.pagination button.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* News Article Page Styles */
+.article-hero {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    padding: 2rem 0;
+    margin-bottom: 0;
+}
+
+.article-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.article-header-content {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.article-category {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.article-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.article-summary {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-image {
+    width: 100%;
+    max-width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 2rem 0;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Article Content Styling */
+.article-content h3 {
+    color: #333;
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1.2rem 0;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+.article-content h4 {
+    color: #333;
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.article-content p {
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    font-size: 1.15rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin: 2rem 0;
+    padding-left: 2.5rem;
+}
+
+.article-content li {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.article-content blockquote {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #333;
+}
+
+/* Article Tags */
+.article-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.article-tag {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Article Links */
+.article-links {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.article-links h4 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.article-links a {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 0.25rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.article-links a:hover {
+    background: #764ba2;
+}
+
+/* Responsive News Styles */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .news-item .news-date {
+        margin-bottom: 0.5rem;
+        margin-right: 0;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+    
+    .article-title {
+        font-size: 2rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .article-content {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+    
+    .article-image {
+        height: 250px;
+        margin: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-card-content {
+        padding: 1rem;
+    }
+    
+    .news-title {
+        font-size: 1.1rem;
+    }
+    
+    .article-title {
+        font-size: 1.75rem;
+    }
+    
+    .article-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .article-content p {
+        font-size: 1rem;
+    }
+}

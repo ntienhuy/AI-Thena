@@ -7,9 +7,9 @@ const CONFIG_CONTACT = {
     
     // Primary Contact Information
     primary: {
-        email: "info@ai-thena-lab.edu",
-        phone: "+1 (555) 123-4567",
-        fax: "+1 (555) 123-4568",
+        email: "ntienhuy@fit.hcmus.edu.vn",
+        phone: "",
+        fax: "",
         address: {
             line1: "AI-THENA Lab",
             line2: "Faculty of Information Technology",

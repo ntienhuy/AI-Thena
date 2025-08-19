@@ -4,7 +4,7 @@ const CONFIG_TEAM = {
     // Page Header
     pageTitle: "Our Team",
     pageSubtitle: "Meet the brilliant minds driving our research forward",
-    
+
     // Team Overview
     overview: {
         description: "Our diverse team of researchers, engineers, and students brings together expertise from multiple disciplines to tackle the most challenging problems in AI.",
@@ -17,7 +17,7 @@ const CONFIG_TEAM = {
             staff: 5
         }
     },
-    
+
     // Faculty Members
     // faculty: [
     //     {
@@ -141,13 +141,13 @@ const CONFIG_TEAM = {
     //         students: ["Laura Martinez", "Mike Davis"]
     //     }
     // ],
-    
+
     // Postdoctoral Researchers
     postdocs: [
         {
             id: "ntienhuy",
             name: "Dr. Nguyen Tien Huy",
-            role: "Key Member",
+            role: "Leader",
             initials: "",
             image: "images/teams/huy_nguyen.jpg",
             email: "ntienhuy@fit.hcmus.edu.vn",
@@ -223,7 +223,7 @@ const CONFIG_TEAM = {
         //     publications: 4
         // }
     ],
-    
+
     // // PhD Students
     // phdStudents: [
     //     {
@@ -339,7 +339,7 @@ const CONFIG_TEAM = {
     //         expectedGraduation: "2026"
     //     }
     // ],
-    
+
     // // Masters Students (sample)
     // mastersStudents: [
     //     {
@@ -367,7 +367,7 @@ const CONFIG_TEAM = {
     //         project: "Prompt Engineering for Code Generation"
     //     }
     // ],
-    
+
     // // Research Staff
     // staff: [
     //     {
@@ -409,7 +409,7 @@ const CONFIG_TEAM = {
     //         responsibilities: ["Administrative support", "Meeting coordination", "Travel arrangements"]
     //     }
     // ],
-    
+
     // // Alumni
     // alumni: [
     //     {
@@ -479,7 +479,7 @@ const CONFIG_TEAM = {
     //         image: "images/alumni/rachel-green.jpg"
     //     }
     // ],
-    
+
     // // Visiting Researchers
     // visiting: [
     //     {
@@ -499,33 +499,49 @@ const CONFIG_TEAM = {
     //         host: "Prof. Lisa Wang"
     //     }
     // ],
-    
+
     // Join Us Section
     opportunities: {
         title: "Join Our Team",
         description: "We're always looking for talented researchers and students passionate about AI. If you're interested in joining our lab, we'd love to hear from you!",
         openPositions: [
             {
-                title: "Postdoctoral Researcher - NLP",
-                deadline: "March 15, 2025",
-                description: "Working on large language models and efficient training methods",
-                requirements: ["PhD in CS or related field", "Strong publication record", "Experience with transformers"],
-                link: "#"
+                "title": "Undergraduate Student Positions (Multiple)",
+                "deadline": "Open until filled",
+                "description": "Multiple fully-funded PhD positions are available to research cutting-edge areas of AI, including Multilingual Visual Question Answering and Explainable AI (XAI).",
+                "requirements": [
+                    "Basic knowledge of Machine Learning and Deep Learning",
+                    "Proficiency in Python programming",
+                    "Ability to read and understand English research papers",
+                    "Proactive and eager to learn"
+                ],
+                "link": "#"
             },
             {
-                title: "PhD Positions (Multiple)",
-                deadline: "December 15, 2024",
-                description: "Multiple fully-funded PhD positions available across all research areas",
-                requirements: ["Strong mathematical background", "Programming experience", "Research interest in AI"],
-                link: "#"
+                "title": "Master's Student Positions (Multiple)",
+                "deadline": "Open until filled",
+                "description": "Multiple fully-funded PhD positions are available to research cutting-edge areas of AI, including Multilingual Visual Question Answering and Explainable AI (XAI).",
+                "requirements": [
+                    "Solid knowledge of Machine Learning and Deep Learning",
+                    "Experience in conducting research projects",
+                    "Good programming skills, especially with AI frameworks like PyTorch/TensorFlow",
+                    "Ability to read and synthesize complex research literature"
+                ],
+                "link": "#"
             },
             {
-                title: "Research Engineer",
-                deadline: "Open until filled",
-                description: "Support research projects with software development and infrastructure",
-                requirements: ["BS/MS in CS", "Strong programming skills", "Experience with ML frameworks"],
-                link: "#"
+                "title": "PhD Positions (Multiple)",
+                "deadline": "Open until filled",
+                "description": "Multiple fully-funded PhD positions are available to research cutting-edge areas of AI, including Multilingual Visual Question Answering and Explainable AI (XAI).",
+                "requirements": [
+                    "Master's degree in Computer Science, Mathematics, or a related field",
+                    "Prior research experience and publications",
+                    "In-depth knowledge of Deep Learning and Large Language Models (LLMs)",
+                    "Ability to conduct independent research and solve complex problems"
+                ],
+                "link": "#"
             }
+
         ],
         howToApply: {
             phd: "PhD applications are processed through the university's graduate admissions system. Application deadline: December 15.",

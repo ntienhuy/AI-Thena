@@ -4,7 +4,7 @@ const CONFIG_RESEARCH = {
     // Page Header
     pageTitle: "Our Research",
     pageSubtitle: "Exploring the frontiers of artificial intelligence",
-    
+
     // Research Overview
     overview: {
         title: "Research Overview",
@@ -16,7 +16,7 @@ const CONFIG_RESEARCH = {
             researchGrants: "$5M+"
         }
     },
-    
+
     // Research Areas
     areas: [
         {
@@ -57,213 +57,118 @@ const CONFIG_RESEARCH = {
         }
     ],
 
-    
-    // // Current Projects
-    // projects: [
-    //     {
-    //         id: "athena",
-    //         title: "Project Athena",
-    //         status: "active",
-    //         priority: "high",
-    //         description: "Developing next-generation transformer architectures with 10x improved efficiency",
-    //         longDescription: "This project aims to revolutionize transformer architectures by introducing novel attention mechanisms that scale linearly with sequence length while maintaining or improving performance.",
-    //         startDate: "2024-01",
-    //         endDate: "2025-12",
-    //         progress: 45,
-    //         funding: "$1.2M",
-    //         fundingSource: "NSF",
-    //         principalInvestigator: "Dr. Sarah Chen",
-    //         teamSize: 8,
-    //         tags: ["Deep Learning", "Transformers", "Efficiency"],
-    //         publications: ["Efficient Transformers: A Survey", "Linear Attention Mechanisms"],
-    //         partners: ["Google Research", "MIT CSAIL"],
-    //         outcomes: [
-    //             "3 published papers",
-    //             "2 patent applications",
-    //             "Open-source framework released"
-    //         ]
-    //     },
-    //     {
-    //         id: "minerva",
-    //         title: "Project Minerva",
-    //         status: "active",
-    //         priority: "high",
-    //         description: "Multi-modal learning for unified perception across vision, language, and audio",
-    //         longDescription: "Creating a unified framework for processing and understanding information across multiple modalities, enabling AI systems to perceive the world more like humans do.",
-    //         startDate: "2024-03",
-    //         endDate: "2026-03",
-    //         progress: 30,
-    //         funding: "$800K",
-    //         fundingSource: "DARPA",
-    //         principalInvestigator: "Prof. John Smith",
-    //         teamSize: 6,
-    //         tags: ["Multi-modal", "Computer Vision", "NLP"],
-    //         publications: ["Unified Multi-modal Transformers"],
-    //         partners: ["Microsoft Research"],
-    //         outcomes: [
-    //             "Novel architecture design",
-    //             "State-of-the-art results on 5 benchmarks"
-    //         ]
-    //     },
-    //     {
-    //         id: "apollo",
-    //         title: "Project Apollo",
-    //         status: "active",
-    //         priority: "medium",
-    //         description: "Safe reinforcement learning for autonomous vehicle navigation",
-    //         longDescription: "Developing safe and robust RL algorithms for autonomous driving, with formal safety guarantees and real-world testing.",
-    //         startDate: "2023-06",
-    //         endDate: "2025-06",
-    //         progress: 65,
-    //         funding: "$1.5M",
-    //         fundingSource: "Toyota Research",
-    //         principalInvestigator: "Dr. Maria Garcia",
-    //         teamSize: 10,
-    //         tags: ["RL", "Robotics", "Safety"],
-    //         publications: ["Safe Exploration in Continuous Action Spaces"],
-    //         partners: ["Toyota Research", "Waymo"],
-    //         outcomes: [
-    //             "Safety-certified RL framework",
-    //             "Successful real-world trials"
-    //         ]
-    //     },
-    //     {
-    //         id: "hermes",
-    //         title: "Project Hermes",
-    //         status: "planning",
-    //         priority: "high",
-    //         description: "Federated learning framework for privacy-preserving medical AI",
-    //         longDescription: "Building a federated learning platform that enables training on distributed medical data while preserving patient privacy.",
-    //         startDate: "2025-01",
-    //         endDate: "2027-12",
-    //         progress: 10,
-    //         funding: "$2M",
-    //         fundingSource: "NIH",
-    //         principalInvestigator: "Dr. Alex Johnson",
-    //         teamSize: 12,
-    //         tags: ["Privacy", "Medical AI", "Federated Learning"],
-    //         publications: [],
-    //         partners: ["Mayo Clinic", "Johns Hopkins"],
-    //         outcomes: []
-    //     },
-    //     {
-    //         id: "zeus",
-    //         title: "Project Zeus",
-    //         status: "completed",
-    //         priority: "low",
-    //         description: "Large-scale pretraining for domain-specific language models",
-    //         longDescription: "Successfully developed and deployed domain-specific language models for scientific literature, achieving state-of-the-art performance.",
-    //         startDate: "2023-01",
-    //         endDate: "2024-12",
-    //         progress: 100,
-    //         funding: "$500K",
-    //         fundingSource: "Internal",
-    //         principalInvestigator: "Prof. Lisa Wang",
-    //         teamSize: 4,
-    //         tags: ["NLP", "Pretraining", "Domain Adaptation"],
-    //         publications: ["SciBERT: A Pretrained Language Model for Scientific Text"],
-    //         partners: ["Allen Institute for AI"],
-    //         outcomes: [
-    //             "Released 3 pretrained models",
-    //             "20K+ downloads",
-    //             "Used by 50+ research groups"
-    //         ]
-    //     }
-    // ],
-    
-    // // Collaborations
-    // collaborations: {
-    //     academic: [
-    //         {
-    //             name: "MIT CSAIL",
-    //             logo: "images/partners/mit.png",
-    //             url: "https://csail.mit.edu",
-    //             description: "Computer vision and robotics research",
-    //             projects: ["Project Athena", "3D Vision"],
-    //             since: 2018
-    //         },
-    //         {
-    //             name: "Stanford AI Lab",
-    //             logo: "images/partners/stanford.png",
-    //             url: "https://ai.stanford.edu",
-    //             description: "Natural language processing and deep learning",
-    //             projects: ["Multilingual NLP", "Project Minerva"],
-    //             since: 2019
-    //         },
-    //         {
-    //             name: "UC Berkeley BAIR",
-    //             logo: "images/partners/berkeley.png",
-    //             url: "https://bair.berkeley.edu",
-    //             description: "Reinforcement learning and robotics",
-    //             projects: ["Project Apollo", "Multi-Agent RL"],
-    //             since: 2020
-    //         },
-    //         {
-    //             name: "Oxford ML Research",
-    //             logo: "images/partners/oxford.png",
-    //             url: "#",
-    //             description: "AI safety and alignment research",
-    //             projects: ["AI Safety Framework"],
-    //             since: 2021
-    //         },
-    //         {
-    //             name: "Carnegie Mellon LTI",
-    //             logo: "images/partners/cmu.png",
-    //             url: "#",
-    //             description: "Language technologies and speech processing",
-    //             projects: ["Speech Recognition", "Dialog Systems"],
-    //             since: 2017
-    //         }
-    //     ],
-    //     industry: [
-    //         {
-    //             name: "Google Research",
-    //             logo: "images/partners/google.png",
-    //             url: "#",
-    //             description: "Large language models and efficient AI",
-    //             projects: ["Project Athena", "Efficient Transformers"],
-    //             since: 2019,
-    //             funding: "$2M"
-    //         },
-    //         {
-    //             name: "Microsoft Research",
-    //             logo: "images/partners/microsoft.png",
-    //             url: "#",
-    //             description: "Multi-modal learning and cloud AI",
-    //             projects: ["Project Minerva", "Azure ML Integration"],
-    //             since: 2020,
-    //             funding: "$1.5M"
-    //         },
-    //         {
-    //             name: "NVIDIA AI",
-    //             logo: "images/partners/nvidia.png",
-    //             url: "#",
-    //             description: "GPU optimization and efficient computing",
-    //             projects: ["Green AI", "Model Acceleration"],
-    //             since: 2018,
-    //             funding: "$800K"
-    //         },
-    //         {
-    //             name: "OpenAI",
-    //             logo: "images/partners/openai.png",
-    //             url: "#",
-    //             description: "AI safety and alignment research",
-    //             projects: ["Safety Benchmarks", "Value Alignment"],
-    //             since: 2022,
-    //             funding: "$500K"
-    //         },
-    //         {
-    //             name: "Meta AI",
-    //             logo: "images/partners/meta.png",
-    //             url: "#",
-    //             description: "Computer vision and social AI",
-    //             projects: ["3D Understanding", "Social Intelligence"],
-    //             since: 2021,
-    //             funding: "$1M"
-    //         }
-    //     ]
-    // },
-    
+
+    // Current Projects
+    projects:
+        [
+            {
+                "id": "1",
+                "title": "Predicting the ability to answer visual questions for the visually impaired using a Residual Attention model",
+                "status": "completed",
+                "priority": "high",
+                "description": "Research on predicting the ability of visually impaired individuals to answer visual questions using a Residual Attention model.",
+                "startDate": "2022-05",
+                "endDate": "2023-05",
+                "fundingSource": "Ho Chi Minh City University of Science, VNU-HCM",
+                "principalInvestigator": "Le Thanh Tung",
+                
+            },
+            {
+                "id": "2",
+                "title": "Answering Vietnamese visual questions using a pre-trained vision-language model",
+                "status": "completed",
+                "priority": "high",
+                "description": "Developing a model to answer visual questions in Vietnamese, leveraging pre-trained vision-language models.",
+                "startDate": "2023-06",
+                "endDate": "2024-06",
+                "fundingSource": "Ho Chi Minh City University of Science, VNU-HCM",
+                "principalInvestigator": "Le Thanh Tung",
+                
+            },
+            {
+                "id": "3",
+                "title": "Voice authentication on mobile devices using Knowledge Distillation",
+                "status": "completed",
+                "priority": "medium",
+                "description": "Research on voice authentication on mobile devices by applying the Knowledge Distillation technique.",
+                "startDate": "2022-11",
+                "endDate": "2025-01",
+                "fundingSource": "Ho Chi Minh City University of Science, VNU-HCM",
+                "principalInvestigator": "Nguyen Tien Huy",
+              
+            },
+            {
+                "id": "4",
+                "title": "Integrating local and global features in a Vietnamese visual question answering model",
+                "status": "completed",
+                "priority": "high",
+                "description": "Research and development of a Vietnamese visual question answering model by integrating local and global features.",
+                "startDate": "2024-07",
+                "endDate": "2025-07",
+                "fundingSource": "Ho Chi Minh City University of Science, VNU-HCM",
+                "principalInvestigator": "Le Thanh Tung",
+                
+            },
+            {
+                "id": "5",
+                "title": "A Vietnamese visual question answering system using a Vietnamese-English mapping mechanism integrated with large language model queries",
+                "status": "in_progress",
+                "priority": "high",
+                "description": "Building a Vietnamese visual question answering system using a Vietnamese-English mapping mechanism and integrating queries with large language models.",
+                "startDate": "2025-02",
+                "endDate": "2027-02",
+                "fundingSource": "Vietnam National University, Ho Chi Minh City",
+                "principalInvestigator": "Le Thanh Tung"
+            },
+            {
+                "id": "6",
+                "title": "An explainable artificial intelligence model for text classification and question answering tasks",
+                "status": "in_progress",
+                "priority": "medium",
+                "description": "Researching an explainable AI model for text classification and question answering tasks.",
+                "startDate": "2025-02",
+                "endDate": "2027-02",
+                "fundingSource": "Vietnam National University, Ho Chi Minh City",
+                "principalInvestigator": "Nguyen Tien Huy"
+            },
+            {
+                "id": "7",
+                "title": "A study on Multimodal and Multilingual Automated Fact Check and Reducing Hallucination in LLMs with Direct Preference Optimization",
+                "status": "in_progress",
+                "priority": "high",
+                "description": "Research on multimodal and multilingual automated fact checking and reducing 'hallucination' in LLMs using Direct Preference Optimization.",
+                "startDate": "2024-08",
+                "endDate": "2026-08",
+                "fundingSource": "Asian Office of Aerospace Research and Development",
+                "principalInvestigator": "Nguyen Tien Huy"
+            }
+        ],
+
+    // Collaborations
+    collaborations: {
+        academic: [
+            {
+                name: "MIT CSAIL",
+                logo: "images/partners/mit.png",
+                url: "https://csail.mit.edu",
+                description: "Computer vision and robotics research",
+                projects: ["Project Athena", "3D Vision"],
+                since: 2018
+            },
+        ],
+        industry: [
+            {
+                name: "Google Research",
+                logo: "images/partners/google.png",
+                url: "#",
+                description: "Large language models and efficient AI",
+                projects: ["Project Athena", "Efficient Transformers"],
+                since: 2019,
+                funding: "$2M"
+            },
+        ]
+    },
+
     // // Research Resources
     // resources: {
     //     facilities: [

@@ -21,30 +21,29 @@ const CONFIG_FOOTER = {
                 { text: "Publications", url: "publications.html" },
                 { text: "Team", url: "team.html" },
                 { text: "Contact", url: "contact.html" },
-                { text: "Lab Resources", url: "#" },
-                { text: "Internal Wiki", url: "#", external: true }
+                { text: "News", url: "news.html" },
             ]
         },
-        {
-            title: "Opportunities",
-            links: [
-                { text: "PhD Positions", url: "contact.html#phd" },
-                { text: "Postdoc Positions", url: "contact.html#postdoc" },
-                { text: "Internships", url: "contact.html#internships" },
-                { text: "Visiting Researchers", url: "contact.html#visiting" },
-                { text: "Collaborations", url: "contact.html#collaborate" }
-            ]
-        },
-        {
-            title: "Resources",
-            links: [
-                { text: "GitHub", url: "https://github.com/ai-thena", external: true },
-                { text: "Datasets", url: "#" },
-                { text: "Code", url: "#" },
-                { text: "Documentation", url: "#" },
-                { text: "Tutorial Videos", url: "#" }
-            ]
-        },
+        // {
+        //     title: "Opportunities",
+        //     links: [
+        //         { text: "PhD Positions", url: "contact.html#phd" },
+        //         { text: "Postdoc Positions", url: "contact.html#postdoc" },
+        //         { text: "Internships", url: "contact.html#internships" },
+        //         { text: "Visiting Researchers", url: "contact.html#visiting" },
+        //         { text: "Collaborations", url: "contact.html#collaborate" }
+        //     ]
+        // },
+        // {
+        //     title: "Resources",
+        //     links: [
+        //         { text: "GitHub", url: "https://github.com/ai-thena", external: true },
+        //         { text: "Datasets", url: "#" },
+        //         { text: "Code", url: "#" },
+        //         { text: "Documentation", url: "#" },
+        //         { text: "Tutorial Videos", url: "#" }
+        //     ]
+        // },
         {
             title: "Connect",
             links: [

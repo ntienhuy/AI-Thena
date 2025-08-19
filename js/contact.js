@@ -1,7 +1,7 @@
-// ===== CONTACT.JS - FIXED VERSION =====
+// ===== CONTACT.JS - UPDATED TO USE TEAM OPPORTUNITIES DATA =====
 
 // Wait for DOM and CONFIG to be ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Wait a bit for CONFIG to load if needed
     if (typeof CONFIG === 'undefined') {
         setTimeout(initializeContactPage, 100);
@@ -12,34 +12,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeContactPage() {
     console.log('Initializing contact page...', CONFIG);
-    
+
     if (typeof CONFIG === 'undefined' || !CONFIG.contact) {
         console.error('CONFIG.contact not available');
         return;
     }
-    
+
     // Set page title and subtitle
     setPageHeader();
-    
+
     // Set contact information
     setContactInformation();
-    
+
     // Initialize contact form
     initializeContactForm();
-    
-    // Set opportunities
-    setOpportunities();
-    
+
+    // Set opportunities - NOW USES TEAM DATA
+    setOpportunitiesFromTeam();
+
     // Set FAQ
     setFAQ();
-    
+
     console.log('Contact page initialized successfully');
 }
 
 function setPageHeader() {
     const pageTitle = document.querySelector('.page-hero h1');
     const pageSubtitle = document.querySelector('.page-hero p');
-    
+
     if (pageTitle && CONFIG.contact?.pageTitle) {
         pageTitle.textContent = CONFIG.contact.pageTitle;
     }
@@ -54,7 +54,7 @@ function setContactInformation() {
     if (emailElement && CONFIG.contact?.primary?.email) {
         emailElement.innerHTML = `<a href="mailto:${CONFIG.contact.primary.email}">${CONFIG.contact.primary.email}</a>`;
     }
-    
+
     // Set location
     const locationElement = document.getElementById('contact-location');
     if (locationElement && CONFIG.contact?.primary?.address) {
@@ -66,14 +66,14 @@ function setContactInformation() {
         ].filter(Boolean);
         locationElement.innerHTML = locationParts.join('<br><br>');
     }
-    
+
     // Set GitHub
     const githubElement = document.getElementById('contact-github');
     if (githubElement && CONFIG.contact?.social?.github) {
         githubElement.href = CONFIG.contact.social.github;
         githubElement.textContent = CONFIG.contact.social.github.replace('https://github.com/', 'github.com/');
     }
-    
+
     // Set phone if there's an element for it
     const phoneElement = document.getElementById('contact-phone');
     if (phoneElement && CONFIG.contact?.primary?.phone) {
@@ -84,9 +84,9 @@ function setContactInformation() {
 function initializeContactForm() {
     const form = document.getElementById('contact-form');
     const subjectSelect = document.getElementById('subject');
-    
+
     if (!form || !CONFIG.contact?.form) return;
-    
+
     // Populate subject options
     if (subjectSelect && CONFIG.contact.form.subjects) {
         subjectSelect.innerHTML = '';
@@ -97,84 +97,160 @@ function initializeContactForm() {
             subjectSelect.appendChild(option);
         });
     }
-    
+
     // Handle form submission
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
-        
+
         // Basic validation
         const requiredFields = CONFIG.contact.form.requiredFields || ['name', 'email', 'subject', 'message'];
         const missing = requiredFields.filter(field => !data[field]?.trim());
-        
+
         const statusElement = document.getElementById('form-status');
-        
+
         if (missing.length > 0) {
             statusElement.textContent = `Please fill in: ${missing.join(', ')}`;
             statusElement.className = 'form-status error';
             return;
         }
-        
+
         // Check message length
         if (CONFIG.contact.form.maxMessageLength && data.message.length > CONFIG.contact.form.maxMessageLength) {
             statusElement.textContent = `Message too long. Maximum ${CONFIG.contact.form.maxMessageLength} characters.`;
             statusElement.className = 'form-status error';
             return;
         }
-        
+
         // Simulate form submission (replace with actual form handler)
         statusElement.textContent = 'Sending message...';
         statusElement.className = 'form-status pending';
-        
+
         setTimeout(() => {
             statusElement.textContent = CONFIG.contact.form.successMessage || 'Message sent successfully!';
             statusElement.className = 'form-status success';
             form.reset();
         }, 1500);
-        
+
         console.log('Form submitted:', data);
     });
 }
 
-function setOpportunities() {
+// UPDATED: Use opportunities data from TEAM config instead of CONTACT config
+function setOpportunitiesFromTeam() {
     const oppGrid = document.querySelector('.opportunities-grid');
-    if (!oppGrid || !CONFIG.contact?.opportunities) return;
-    
+    if (!oppGrid) return;
+
+    // Clear existing content
     oppGrid.innerHTML = '';
-    
-    CONFIG.contact.opportunities
+
+    // Check if team opportunities exist
+    const teamOpportunities = CONFIG.team?.opportunities?.openPositions;
+
+    if (!teamOpportunities || teamOpportunities.length === 0) {
+        // Show default opportunities if no team data
+        showDefaultOpportunities(oppGrid);
+        return;
+    }
+
+    // Use team opportunities data
+    teamOpportunities
         .filter(opp => opp && opp.title)
         .forEach(opp => {
             const oppCard = document.createElement('div');
             oppCard.className = 'opportunity-card';
-            
+
             // Add status class for styling
             if (opp.status) {
                 oppCard.classList.add(`status-${opp.status}`);
             }
-            
+
+            // Create unique anchor link for this opportunity
+            const opportunityId = opp.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
             oppCard.innerHTML = `
+                <div id="${opportunityId}"></div>
                 ${opp.icon ? `<div class="opportunity-icon">${opp.icon}</div>` : ''}
                 <h3>${opp.title}</h3>
                 ${opp.description ? `<p>${opp.description}</p>` : ''}
+                ${opp.requirements && opp.requirements.length > 0 ? `
+                    <div class="requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            ${opp.requirements.map(req => `<li>${req}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
                 ${opp.deadline ? `<p class="deadline"><strong>Deadline:</strong> ${opp.deadline}</p>` : ''}
-                ${opp.link ? `<a href="${opp.link}" class="opportunity-link">Learn More →</a>` : ''}
+                ${opp.link && opp.link !== '#' ? `<a href="${opp.link}" class="opportunity-link">Apply Now →</a>` : `<a href="#contact-form" class="opportunity-link">Contact Us →</a>`}
             `;
             oppGrid.appendChild(oppCard);
         });
 }
 
+// Fallback function to show default opportunities if no team data
+function showDefaultOpportunities(oppGrid) {
+    const defaultOpportunities = [
+        {
+            title: "PhD Positions",
+            icon: "🎓",
+            description: "We're looking for motivated PhD students to join our research team. Full funding available for qualified candidates.",
+            deadline: "Rolling basis",
+            status: "open"
+        },
+        {
+            title: "Postdoc Positions",
+            icon: "👨‍🔬",
+            description: "Multiple postdoctoral positions available in NLP, Computer Vision, and Machine Learning.",
+            deadline: "Open until filled",
+            status: "open"
+        },
+        {
+            title: "Research Internships",
+            icon: "💻",
+            description: "Summer and semester internships for undergraduate and graduate students.",
+            deadline: "March 1, 2025",
+            status: "upcoming"
+        },
+        {
+            title: "Industry Collaboration",
+            icon: "🤝",
+            description: "Partner with us on cutting-edge AI research projects and technology transfer opportunities.",
+            deadline: "Always open",
+            status: "open"
+        }
+    ];
+
+    defaultOpportunities.forEach(opp => {
+        const oppCard = document.createElement('div');
+        oppCard.className = 'opportunity-card';
+
+        if (opp.status) {
+            oppCard.classList.add(`status-${opp.status}`);
+        }
+
+        oppCard.innerHTML = `
+            ${opp.icon ? `<div class="opportunity-icon">${opp.icon}</div>` : ''}
+            <h3>${opp.title}</h3>
+            ${opp.description ? `<p>${opp.description}</p>` : ''}
+            ${opp.deadline ? `<p class="deadline"><strong>Deadline:</strong> ${opp.deadline}</p>` : ''}
+            <a href="#contact-form" class="opportunity-link">Learn More →</a>
+        `;
+        oppGrid.appendChild(oppCard);
+    });
+}
+
 function setFAQ() {
     const faqList = document.querySelector('.faq-list');
     if (!faqList || !CONFIG.contact?.faq) return;
-    
+
     // Create wrapper section if it doesn't exist
     const faqSection = faqList.closest('.faq-section') || wrapFAQInSection(faqList);
-    
+
     faqList.innerHTML = '';
-    
+
     CONFIG.contact.faq
         .filter(item => item && item.question && item.answer)
         .forEach(item => {
@@ -186,9 +262,9 @@ function setFAQ() {
                     <p>${item.answer}</p>
                 </div>
             `;
-            
+
             // Add smooth animation for open/close
-            faqItem.addEventListener('toggle', function() {
+            faqItem.addEventListener('toggle', function () {
                 if (this.open) {
                     // Close other FAQs for accordion behavior (optional)
                     // document.querySelectorAll('.faq-item[open]').forEach(other => {
@@ -196,7 +272,7 @@ function setFAQ() {
                     // });
                 }
             });
-            
+
             faqList.appendChild(faqItem);
         });
 }
@@ -204,15 +280,15 @@ function setFAQ() {
 function wrapFAQInSection(faqList) {
     const wrapper = document.createElement('div');
     wrapper.className = 'faq-section';
-    
+
     const title = document.createElement('h2');
     title.className = 'section-title';
     title.textContent = 'Frequently Asked Questions';
-    
+
     wrapper.appendChild(title);
     faqList.parentNode.insertBefore(wrapper, faqList);
     wrapper.appendChild(faqList);
-    
+
     return wrapper;
 }
 
@@ -222,9 +298,9 @@ function populateKeyContacts() {
     // If you have a section for key contacts in your HTML
     const contactsSection = document.querySelector('.key-contacts');
     if (!contactsSection || !CONFIG.contact?.keyContacts) return;
-    
+
     contactsSection.innerHTML = '';
-    
+
     CONFIG.contact.keyContacts.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'contact-category';
@@ -252,10 +328,10 @@ function populateKeyContacts() {
 // Initialize map if needed
 function initializeMap() {
     if (!CONFIG.contact?.map?.enabled || !CONFIG.contact?.primary?.coordinates) return;
-    
+
     const mapContainer = document.querySelector('.map-container');
     if (!mapContainer) return;
-    
+
     // Replace placeholder with actual map
     const coords = CONFIG.contact.primary.coordinates;
     mapContainer.innerHTML = `
@@ -269,7 +345,7 @@ function initializeMap() {
 }
 
 // Call additional setup functions if needed
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         if (typeof CONFIG !== 'undefined' && CONFIG.contact) {
             initializeMap();

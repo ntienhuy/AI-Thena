@@ -44,8 +44,8 @@ function initializePublicationsPage() {
     // Update statistics
     updatePublicationStats();
     
-    // // Set featured publications
-    // setFeaturedPublications();
+    // Set featured publications
+    setFeaturedPublications();
     
     // Initialize filters
     initializeFilters();
@@ -119,36 +119,36 @@ function updatePublicationStats() {
     }
 }
 
-// function setFeaturedPublications() {
-//     const featuredPubs = document.querySelector('.featured-publications');
-//     if (featuredPubs && CONFIG.publications?.featured) {
-//         featuredPubs.innerHTML = '';
+function setFeaturedPublications() {
+    const featuredPubs = document.querySelector('.featured-publications');
+    if (featuredPubs && CONFIG.publications?.featured) {
+        featuredPubs.innerHTML = '';
         
-//         CONFIG.publications.featured
-//             .filter(pub => pub && pub.title)
-//             .slice(0, 2)
-//             .forEach(pub => {
-//                 const featuredDiv = document.createElement('div');
-//                 featuredDiv.className = 'featured-pub';
+        CONFIG.publications.featured
+            .filter(pub => pub && pub.title)
+            .slice(0, 2)
+            .forEach(pub => {
+                const featuredDiv = document.createElement('div');
+                featuredDiv.className = 'featured-pub';
                 
-//                 const links = [];
-//                 if (pub.pdf) links.push(`<a href="${pub.pdf}" class="pub-link">PDF</a>`);
-//                 if (pub.arxiv) links.push(`<a href="${pub.arxiv}" class="pub-link">arXiv</a>`);
-//                 if (pub.code) links.push(`<a href="${pub.code}" class="pub-link">Code</a>`);
+                const links = [];
+                if (pub.pdf) links.push(`<a href="${pub.pdf}" class="pub-link">PDF</a>`);
+                if (pub.arxiv) links.push(`<a href="${pub.arxiv}" class="pub-link">arXiv</a>`);
+                if (pub.code) links.push(`<a href="${pub.code}" class="pub-link">Code</a>`);
                 
-//                 featuredDiv.innerHTML = `
-//                     ${pub.award ? `<div class="pub-badge">${pub.award}</div>` : ''}
-//                     <h3>${pub.title}</h3>
-//                     ${pub.authors ? `<p class="pub-authors">${pub.authors.join(', ')}</p>` : ''}
-//                     ${pub.venue ? `<p class="pub-venue">${pub.venue}</p>` : ''}
-//                     ${pub.abstract ? `<p class="pub-abstract">${pub.abstract}</p>` : ''}
-//                     ${links.length > 0 ? `<div class="pub-links">${links.join('')}</div>` : ''}
-//                 `;
+                featuredDiv.innerHTML = `
+                    ${pub.award ? `<div class="pub-badge">${pub.award}</div>` : ''}
+                    <h3>${pub.title}</h3>
+                    ${pub.authors ? `<p class="pub-authors">${pub.authors.join(', ')}</p>` : ''}
+                    ${pub.venue ? `<p class="pub-venue">${pub.venue}</p>` : ''}
+                    ${pub.abstract ? `<p class="pub-abstract">${pub.abstract}</p>` : ''}
+                    ${links.length > 0 ? `<div class="pub-links">${links.join('')}</div>` : ''}
+                `;
                 
-//                 featuredPubs.appendChild(featuredDiv);
-//             });
-//     }
-// }
+                featuredPubs.appendChild(featuredDiv);
+            });
+    }
+}
 
 function displayPublications(publications) {
     const publicationsList = document.getElementById('publications-list');

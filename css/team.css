@@ -1,0 +1,594 @@
+/* ===== TEAM PAGE STYLES ===== */
+
+/* Team Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Team Member Cards */
+.team-member {
+    text-align: center;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.team-member:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.team-member h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.team-member h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.team-member h3 a:hover {
+    color: #667eea;
+}
+
+.team-member .role {
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.team-member .description {
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Member Photos and Avatars */
+.member-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover .member-photo {
+    transform: scale(1.1);
+    border-color: white;
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.team-member:hover .member-avatar {
+    transform: scale(1.1);
+}
+
+/* Member Avatar Fallbacks */
+.member-avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    text-transform: uppercase;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.member-avatar-fallback::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+.member-avatar-fallback:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Different avatar colors for different roles */
+.member-avatar-fallback.faculty {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.member-avatar-fallback.student {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+}
+
+.member-avatar-fallback.staff {
+    background: linear-gradient(45deg, #ff6b6b, #ff8787);
+}
+
+.member-avatar-fallback.alumni {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.member-avatar-fallback.visitor {
+    background: linear-gradient(45deg, #2196f3, #42a5f5);
+}
+
+/* Contact Information */
+.contact-info {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.contact-info a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+    color: #764ba2;
+}
+
+.view-profile-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.view-profile-link:hover {
+    text-decoration: underline;
+    color: #764ba2;
+}
+
+/* Students Grid */
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.student-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.student-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.student-info h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.student-topic {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.student-year {
+    color: #999;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.student-advisor {
+    color: #667eea;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.student-email a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.student-email a:hover {
+    text-decoration: underline;
+}
+
+.student-program {
+    background: rgba(102, 126, 234, 0.1);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Staff Grid */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Visiting Researchers Grid */
+.visiting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.institution {
+    color: #666;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.duration {
+    background: rgba(102, 126, 234, 0.1);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #667eea;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+.host {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Alumni List */
+.alumni-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.alumni-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+.alumni-item:hover {
+    background: #f8f9fa;
+}
+
+.alumni-item:last-child {
+    border-bottom: none;
+}
+
+.alumni-item h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.alumni-item p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0.3rem;
+}
+
+.alumni-current {
+    color: #667eea;
+    font-weight: 500;
+    margin-top: 0.3rem;
+}
+
+/* Join Us Section */
+.cta-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cta-section .opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.cta-section .opportunity-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cta-section .opportunity-card:hover {
+    transform: translateY(-5px);
+}
+
+.cta-section .opportunity-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.cta-section .opportunity-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.cta-section .opportunity-card li {
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+/* Fix for opportunity card description text alignment */
+.cta-section .opportunity-card p {
+    text-align: justify;
+}
+
+/* Fix to align all "Learn More" links at the same position */
+.cta-section .opportunity-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cta-section .opportunity-card .opportunity-link {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+/* Hide empty sections */
+.content-section:empty,
+.content-section:has(.team-grid:empty),
+.content-section:has(.students-grid:empty),
+.content-section:has(.alumni-list:empty) {
+    display: none !important;
+}
+
+/* Loading and Empty States */
+.loading-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+}
+
+.loading-placeholder::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Animation for dynamically added content */
+.team-member,
+.student-card,
+.alumni-item {
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Responsive Team Styles */
+@media (max-width: 768px) {
+    .team-grid,
+    .students-grid,
+    .masters-grid,
+    .staff-grid,
+    .visiting-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-member {
+        padding: 1.5rem;
+    }
+    
+    .member-photo,
+    .member-avatar,
+    .member-avatar-fallback {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+    
+    .student-card {
+        padding: 1rem;
+    }
+    
+    .alumni-item {
+        padding: 1rem;
+    }
+    
+    .cta-section .opportunities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member h3 {
+        font-size: 1.1rem;
+    }
+    
+    .team-member .role {
+        font-size: 0.95rem;
+    }
+    
+    .team-member .description {
+        font-size: 0.9rem;
+    }
+}
+
+/* CTA Buttons - ADD THIS TO YOUR team.css */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white !important;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    font-size: 1rem;
+    text-align: center;
+    min-width: 180px;
+}
+
+.cta-button:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white !important;
+}
+
+.cta-button-outline {
+    display: inline-block;
+    background: transparent;
+    color: #667eea !important;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid #667eea;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-align: center;
+    min-width: 180px;
+}
+
+.cta-button-outline:hover {
+    background: #667eea;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Opportunity link styling */
+.opportunity-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.opportunity-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Responsive CTA buttons */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button,
+    .cta-button-outline {
+        width: 100%;
+        max-width: 280px;
+    }
+}
