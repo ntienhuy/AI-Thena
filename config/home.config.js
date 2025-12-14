@@ -40,28 +40,4 @@ const CONFIG_HOME = {
         viewAllText: "View All News →",
         viewAllLink: "news.html"
     },
-    
-    // Testimonials
-    testimonials: [
-        {
-            text: "AI-THENA Lab is pushing the boundaries of what's possible in machine learning. Their work on efficient transformers is groundbreaking.",
-            author: "Dr. Yann LeCun",
-            role: "Chief AI Scientist, Meta",
-            image: "images/testimonial1.jpg"
-        },
-        {
-            text: "The research coming out of this lab is consistently among the most innovative and impactful in the field.",
-            author: "Prof. Andrew Ng",
-            role: "Founder, DeepLearning.AI",
-            image: "images/testimonial2.jpg"
-        }
-    ],
-    
-    // Quick Links
-    quickLinks: [
-        { text: "Join Our Team", link: "contact.html#opportunities", icon: "🚀" },
-        { text: "Latest Publications", link: "publications.html", icon: "📄" },
-        { text: "Research Projects", link: "research.html#projects", icon: "🔬" },
-        { text: "Lab Resources", link: "#", icon: "💻" }
-    ]
 };

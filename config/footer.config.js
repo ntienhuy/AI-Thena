@@ -64,32 +64,5 @@ const CONFIG_FOOTER = {
         // { text: "Accessibility", url: "/accessibility" },
         // { text: "Sitemap", url: "/sitemap" }
     ],
-    
-    // Affiliations/Logos
-    affiliations: [
-        {
-            name: "Tech University",
-            logo: "images/affiliations/university.png",
-            url: "https://university.edu"
-        },
-        {
-            name: "NSF",
-            logo: "images/affiliations/nsf.png",
-            url: "https://nsf.gov"
-        },
-        {
-            name: "IEEE",
-            logo: "images/affiliations/ieee.png",
-            url: "https://ieee.org"
-        }
-    ],
-    
-    // Display Options
-    display: {
-        showSocialIcons: true,
-        showNewsletter: true,
-        showAffiliations: true,
-        showBottomLinks: true,
-        darkMode: false
-    }
+
 };

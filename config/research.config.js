@@ -7,14 +7,7 @@ const CONFIG_RESEARCH = {
 
     // Research Overview
     overview: {
-        title: "Research Overview",
         description: "Our lab focuses on cutting-edge research in artificial intelligence, combining theoretical foundations with practical applications to solve real-world problems. We believe in interdisciplinary collaboration and open science principles.",
-        stats: {
-            activeProjects: 12,
-            completedProjects: 45,
-            industryCollaborations: 20,
-            researchGrants: "$5M+"
-        }
     },
 
     // Research Areas

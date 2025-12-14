@@ -247,12 +247,6 @@ const CONFIG_TEAM = {
                 ],
                 link: "#"
             }
-        ],
-        howToApply: {
-            phd: "PhD applications are processed through the university's graduate admissions system. Application deadline: December 15.",
-            masters: "Please send your CV and research interests to the lab leader.",
-            undergraduate: "Undergraduate positions are open year-round. Contact us with your CV and academic transcript.",
-            visiting: "Visiting researcher positions are arranged on a case-by-case basis. Please contact the faculty member you wish to work with."
-        }
+        ]
     }
 };
