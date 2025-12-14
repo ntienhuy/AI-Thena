@@ -48,7 +48,7 @@
         <div class="container">
             <div class="contact-layout">
                 <!-- Contact Form -->
-                <section class="content-section contact-form-section">
+                <!-- <section class="content-section contact-form-section">
                     <h2 class="section-title">Send us a Message</h2>
                     <form id="contact-form" class="contact-form">
                         <div class="form-group">
@@ -81,7 +81,7 @@
                         <button type="submit" class="submit-btn">Send Message</button>
                         <p class="form-status" id="form-status"></p>
                     </form>
-                </section>
+                </section> -->
 
                 <!-- Contact Information -->
                 <section class="content-section contact-info-section">
@@ -109,12 +109,12 @@
                     </div>
 
                     <!-- Map placeholder -->
-                    <div class="map-container">
+                    <!-- <div class="map-container">
                         <div class="map-placeholder">
                             <p>🗺️ Interactive Map</p>
                             <p>University Campus Location</p>
                         </div>
-                    </div>
+                    </div> -->
                 </section>
             </div>
 
@@ -144,10 +144,10 @@
                     </div>
                 </div>
             </section>
-
-            <!-- FAQ Section -->
+            <!-- 
+            FAQ Section
             <section class="content-section">
-                <!-- <h2 class="section-title">Frequently Asked Questions</h2> -->
+                <h2 class="section-title">Frequently Asked Questions</h2>
                 <div class="faq-list">
                     <details class="faq-item">
                         <summary>How can I apply for a PhD position?</summary>
@@ -166,7 +166,7 @@
                         <p>We're always open to collaboration opportunities. Please send us a detailed proposal outlining your research interests and potential collaboration areas.</p>
                     </details>
                 </div>
-            </section>
+            </section> -->
         </div>
     </main>
 
@@ -196,7 +196,30 @@
         </div>
     </footer>
 
-    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <!-- 1. Core: Config Loader -->
+    <script src="js/core/config-loader.js"></script>
+    
+    <!-- 2. Utils -->
+    <script src="js/utils/date-utils.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
+    <script src="js/utils/string-utils.js"></script>
+    
+    <!-- 3. Components -->
+    <script src="js/components/card-factory.js"></script>
+    <script src="js/components/image-handler.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/pagination.js"></script>
+    
+    <!-- 4. Pages (chỉ load page tương ứng) -->
+    <script src="js/pages/contact.js"></script>
+    <!-- HOẶC: <script src="js/pages/research.js"></script> -->
+    <!-- HOẶC: <script src="js/pages/team.js"></script> -->
+    <!-- etc... -->
+    
+    <!-- 5. App: Main initialization -->
+    <script src="js/app.js"></script>
+    
+    <!-- 6. Config files (load CUỐI) -->
     <script src="config/lab.config.js"></script>
     <script src="config/home.config.js"></script>
     <script src="config/research.config.js"></script>
@@ -204,16 +227,7 @@
     <script src="config/publications.config.js"></script>
     <script src="config/contact.config.js"></script>
     <script src="config/footer.config.js"></script>
+    <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
-    
-    <!-- Load common JavaScript AFTER configs -->
-    <script src="js/common.js"></script>
-    
-    <!-- Load page-specific JavaScript last -->
-    <!-- For index.html: <script src="js/home.js"></script> -->
-    <!-- For research.html: <script src="js/research.js"></script> -->
-    <!-- For team.html: <script src="js/team.js"></script> -->
-    <!-- For publications.html: <script src="js/publications.js"></script> -->
-    <script src="js/contact.js"></script>
 </body>
 </html>

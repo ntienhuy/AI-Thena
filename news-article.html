@@ -121,7 +121,30 @@
         </div>
     </footer>
 
-    <!-- Load configuration files FIRST -->
+    <!-- 1. Core: Config Loader -->
+    <script src="js/core/config-loader.js"></script>
+    
+    <!-- 2. Utils -->
+    <script src="js/utils/date-utils.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
+    <script src="js/utils/string-utils.js"></script>
+    
+    <!-- 3. Components -->
+    <script src="js/components/card-factory.js"></script>
+    <script src="js/components/image-handler.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/pagination.js"></script>
+    
+    <!-- 4. Pages (chỉ load page tương ứng) -->
+    <script src="js/pages/news-article.js"></script>
+    <!-- HOẶC: <script src="js/pages/research.js"></script> -->
+    <!-- HOẶC: <script src="js/pages/team.js"></script> -->
+    <!-- etc... -->
+    
+    <!-- 5. App: Main initialization -->
+    <script src="js/app.js"></script>
+    
+    <!-- 6. Config files (load CUỐI) -->
     <script src="config/lab.config.js"></script>
     <script src="config/home.config.js"></script>
     <script src="config/research.config.js"></script>
@@ -131,54 +154,6 @@
     <script src="config/footer.config.js"></script>
     <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
-
-    <!-- Load common JavaScript AFTER configs -->
-    <script src="js/common.js"></script>
-
-    <!-- Debug script -->
-    <script>
-        console.log('=== NEWS ARTICLE PAGE DEBUG ===');
-        console.log('1. Page loaded');
-        console.log('2. Checking CONFIG availability...');
-
-        function checkConfigs() {
-            console.log('CONFIG_NEWS defined:', typeof CONFIG_NEWS !== 'undefined');
-            console.log('CONFIG defined:', typeof CONFIG !== 'undefined');
-            if (typeof CONFIG !== 'undefined') {
-                console.log('CONFIG.news exists:', !!CONFIG.news);
-                if (CONFIG.news && CONFIG.news.articles) {
-                    console.log('Articles count:', CONFIG.news.articles.length);
-                    console.log('First 3 article IDs:', CONFIG.news.articles.slice(0, 3).map(a => a.id));
-                }
-            }
-        }
-
-        setTimeout(checkConfigs, 100);
-    </script>
-
-    <!-- Load page-specific JavaScript -->
-    <script src="js/news-article.js"></script>
-</body>
-
-</html>contact.config.js"></script>
-<script src="config/footer.config.js"></script>
-<script src="config/news.config.js"></script>
-<script src="config/config.js"></script>
-
-<!-- Load common JavaScript AFTER configs -->
-<script src="js/common.js"></script>
-
-<!-- Load page-specific JavaScript -->
-<script>
-    // Debug: Check if configs are loading
-    console.log('Script loading order check:');
-    console.log('CONFIG_NEWS defined:', typeof CONFIG_NEWS !== 'undefined');
-    console.log('CONFIG defined:', typeof CONFIG !== 'undefined');
-    if (typeof CONFIG !== 'undefined') {
-        console.log('CONFIG.news exists:', !!CONFIG.news);
-    }
-</script>
-<script src="js/news-article.js"></script>
 </body>
 
 </html>

@@ -47,11 +47,12 @@ const CONFIG_FOOTER = {
         {
             title: "Connect",
             links: [
-                { text: "Twitter", url: "https://twitter.com/ai_thena_lab", external: true },
-                { text: "LinkedIn", url: "https://linkedin.com/company/ai-thena-lab", external: true },
-                { text: "YouTube", url: "https://youtube.com/@ai-thena-lab", external: true },
-                { text: "Newsletter", url: "contact.html#newsletter" },
-                { text: "RSS Feed", url: "/feed.xml" }
+                { text: "Contact Us", url: "contact.html" }
+                // { text: "Twitter", url: "https://twitter.com/ai_thena_lab", external: true },
+                // { text: "LinkedIn", url: "https://linkedin.com/company/ai-thena-lab", external: true },
+                // { text: "YouTube", url: "https://youtube.com/@ai-thena-lab", external: true },
+                // { text: "Newsletter", url: "contact.html#newsletter" },
+                // { text: "RSS Feed", url: "/feed.xml" }
             ]
         }
     ],

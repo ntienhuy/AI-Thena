@@ -44,76 +44,68 @@
             </div>
         </section>
 
-        <div class="container">
-            <!-- Faculty Section -->
-            <section class="content-section">
-                <h2 class="section-title">Faculty</h2>
-                <div class="team-grid" id="faculty-grid">
-                    <!-- Faculty members will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Research Team (Postdocs) -->
-            <section class="content-section">
-                <h2 class="section-title">Research Team</h2>
-                <div class="team-grid" id="team-grid">
-                    <!-- Postdocs will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- PhD Students -->
-            <section class="content-section">
-                <h2 class="section-title">PhD Students</h2>
-                <div class="students-grid">
-                    <!-- PhD students will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Masters Students -->
-            <section class="content-section">
-                <h2 class="section-title">Masters Students</h2>
-                <div class="students-grid masters-grid">
-                    <!-- Masters students will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Research Staff -->
-            <section class="content-section">
-                <h2 class="section-title">Research Staff</h2>
-                <div class="team-grid staff-grid">
-                    <!-- Staff members will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Visiting Researchers -->
-            <section class="content-section">
-                <h2 class="section-title">Visiting Researchers</h2>
-                <div class="team-grid visiting-grid">
-                    <!-- Visiting researchers will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Alumni -->
-            <section class="content-section">
-                <h2 class="section-title">Notable Alumni</h2>
-                <div class="alumni-list">
-                    <!-- Alumni will be populated by JavaScript -->
-                </div>
-            </section>
-
-            <!-- Join Us -->
-            <section class="content-section cta-section">
-                <h2 class="section-title">Join Our Team</h2>
-                <p class="section-intro">
-                    We're always looking for talented researchers and students passionate about AI.
-                </p>
-                <!-- Open positions will be inserted here by JavaScript -->
-                <div class="cta-buttons">
-                    <a href="contact.html#opportunities" class="cta-button">View Opportunities</a>
-                    <a href="contact.html" class="cta-button-outline">Get in Touch</a>
-                </div>
-            </section>
-        </div>
+    <div class="container">
+        <!-- Scientific Advisors -->
+        <section class="content-section">
+            <h2 class="section-title">Scientific Advisors</h2>
+            <div class="team-grid" id="advisors-grid">
+                <!-- Advisors will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- Research Members -->
+        <section class="content-section">
+            <h2 class="section-title">Research Members</h2>
+            <div class="team-grid" id="members-grid">
+                <!-- Research members will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- PhD Students -->
+        <section class="content-section">
+            <h2 class="section-title">PhD Students</h2>
+            <div class="students-grid" id="phd-grid">
+                <!-- PhD students will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- Masters Students -->
+        <section class="content-section">
+            <h2 class="section-title">Master's Students</h2>
+            <div class="students-grid" id="masters-grid">
+                <!-- Masters students will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- Undergraduate Students -->
+        <section class="content-section">
+            <h2 class="section-title">Undergraduate Students</h2>
+            <div class="students-grid" id="undergrad-grid">
+                <!-- Undergraduate students will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- Alumni -->
+        <section class="content-section">
+            <h2 class="section-title">Alumni</h2>
+            <div class="alumni-list" id="alumni-list">
+                <!-- Alumni will be populated by JavaScript -->
+            </div>
+        </section>
+    
+        <!-- Join Us -->
+        <section class="content-section cta-section">
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-intro">
+                We're always looking for talented researchers and students passionate about AI.
+            </p>
+            <div id="opportunities-container"></div>
+            <div class="cta-buttons">
+                <a href="contact.html#opportunities" class="cta-button">View Opportunities</a>
+                <a href="contact.html" class="cta-button-outline">Get in Touch</a>
+            </div>
+        </section>
+    </div>
     </main>
 
     <footer>
@@ -127,7 +119,30 @@
         </div>
     </footer>
 
-    <!-- Load configuration files FIRST -->
+    <!-- 1. Core: Config Loader -->
+    <script src="js/core/config-loader.js"></script>
+    
+    <!-- 2. Utils -->
+    <script src="js/utils/date-utils.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
+    <script src="js/utils/string-utils.js"></script>
+    
+    <!-- 3. Components -->
+    <script src="js/components/card-factory.js"></script>
+    <script src="js/components/image-handler.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/pagination.js"></script>
+    
+    <!-- 4. Pages (chỉ load page tương ứng) -->
+    <script src="js/pages/team.js"></script>
+    <!-- HOẶC: <script src="js/pages/research.js"></script> -->
+    <!-- HOẶC: <script src="js/pages/team.js"></script> -->
+    <!-- etc... -->
+    
+    <!-- 5. App: Main initialization -->
+    <script src="js/app.js"></script>
+    
+    <!-- 6. Config files (load CUỐI) -->
     <script src="config/lab.config.js"></script>
     <script src="config/home.config.js"></script>
     <script src="config/research.config.js"></script>
@@ -135,13 +150,8 @@
     <script src="config/publications.config.js"></script>
     <script src="config/contact.config.js"></script>
     <script src="config/footer.config.js"></script>
+    <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
-
-    <!-- Load common JavaScript AFTER configs -->
-    <script src="js/common.js"></script>
-
-    <!-- Load page-specific JavaScript -->
-    <script src="js/team.js"></script>
 </body>
 
 </html>

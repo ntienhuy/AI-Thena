@@ -51,3 +51,46 @@
         margin: 1rem 0;
     }
 }
+
+/* Contact Page Layout Fix */
+.contact-info-section .contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-info-section .contact-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #667eea;
+}
+
+.contact-info-section .contact-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Make both sections same width */
+.contact-layout {
+    display: block;
+    max-width: 100%;
+}
+
+.contact-info-section,
+.opportunities-grid {
+    width: 100%;
+}
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .contact-info-grid,
+    .opportunities-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -336,7 +336,30 @@
         </div>
     </footer>
 
-    <!-- Load configuration files FIRST -->
+    <!-- 1. Core: Config Loader -->
+    <script src="js/core/config-loader.js"></script>
+    
+    <!-- 2. Utils -->
+    <script src="js/utils/date-utils.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
+    <script src="js/utils/string-utils.js"></script>
+    
+    <!-- 3. Components -->
+    <script src="js/components/card-factory.js"></script>
+    <script src="js/components/image-handler.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/pagination.js"></script>
+    
+    <!-- 4. Pages (chỉ load page tương ứng) -->
+    <script src="js/pages/news.js"></script>
+    <!-- HOẶC: <script src="js/pages/research.js"></script> -->
+    <!-- HOẶC: <script src="js/pages/team.js"></script> -->
+    <!-- etc... -->
+    
+    <!-- 5. App: Main initialization -->
+    <script src="js/app.js"></script>
+    
+    <!-- 6. Config files (load CUỐI) -->
     <script src="config/lab.config.js"></script>
     <script src="config/home.config.js"></script>
     <script src="config/research.config.js"></script>
@@ -346,12 +369,6 @@
     <script src="config/footer.config.js"></script>
     <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
-
-    <!-- Load common JavaScript AFTER configs -->
-    <script src="js/common.js"></script>
-
-    <!-- Load page-specific JavaScript -->
-    <script src="js/news.js"></script>
 </body>
 
 </html>

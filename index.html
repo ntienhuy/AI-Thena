@@ -111,7 +111,7 @@
         </div>
     </footer>
 
-    <!-- CRITICAL: Load configuration files FIRST and in correct order -->
+    <!-- 1. CONFIG FILES (load TRƯỚC TIÊN) -->
     <script src="config/lab.config.js"></script>
     <script src="config/home.config.js"></script>
     <script src="config/research.config.js"></script>
@@ -122,10 +122,24 @@
     <script src="config/news.config.js"></script>
     <script src="config/config.js"></script>
     
-    <!-- Load common JavaScript AFTER configs -->
-    <script src="js/common.js"></script>
+    <!-- 2. Core: Config Loader -->
+    <script src="js/core/config-loader.js"></script>
     
-    <!-- Load page-specific JavaScript last -->
-    <script src="js/home.js"></script>
+    <!-- 3. Utils -->
+    <script src="js/utils/date-utils.js"></script>
+    <script src="js/utils/dom-utils.js"></script>
+    <script src="js/utils/string-utils.js"></script>
+    
+    <!-- 4. Components -->
+    <script src="js/components/card-factory.js"></script>
+    <script src="js/components/image-handler.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/pagination.js"></script>
+    
+    <!-- 5. Pages -->
+    <script src="js/pages/home.js"></script>
+    
+    <!-- 6. App: Main initialization -->
+    <script src="js/app.js"></script>
 </body>
 </html>

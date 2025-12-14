@@ -5,40 +5,6 @@ const CONFIG_PUBLICATIONS = {
     pageTitle: "Publications",
     pageSubtitle: "Our contributions to the scientific community",
 
-    // // Publication Statistics
-    // stats: {
-    //     total: 150,
-    //     journal: 45,
-    //     conference: 85,
-    //     workshop: 20,
-    //     citations: 5250,
-    //     hIndex: 42,
-    //     awards: 15,
-    //     bestPapers: 8
-    // },
-
-    // // Featured Publications
-    // featured: [
-    //     {
-    //         id: "pub-001",
-    //         title: "Efficient Transformers: A Comprehensive Survey and New Directions",
-    //         authors: ["Sarah Chen", "Alice Johnson", "Bob Smith", "John Smith"],
-    //         venue: "NeurIPS 2024",
-    //         venueType: "conference",
-    //         year: 2024,
-    //         award: "Best Paper Award",
-    //         abstract: "This groundbreaking work introduces a novel approach to transformer architectures that reduces computational requirements by 90% while maintaining state-of-the-art performance. We present LinearAttention, a new attention mechanism that scales linearly with sequence length.",
-    //         keywords: ["Transformers", "Efficient AI", "Attention Mechanisms"],
-    //         pdf: "papers/efficient-transformers-2024.pdf",
-    //         arxiv: "https://arxiv.org/abs/2024.xxxxx",
-    //         code: "https://github.com/ai-thena/efficient-transformers",
-    //         slides: "slides/neurips2024-efficient.pdf",
-    //         video: "https://youtube.com/watch?v=xxxxx",
-    //         bibtex: "@inproceedings{chen2024efficient, title={Efficient Transformers}, author={Chen, Sarah and Johnson, Alice}, booktitle={NeurIPS}, year={2024}}",
-    //         citations: 125,
-    //         project: "Project Athena"
-    //     }
-    // ],
 
     // All Publications (sorted by year, then venue)
     publications: [
@@ -626,60 +592,4 @@ const CONFIG_PUBLICATIONS = {
             { value: "nas", label: "Neural Architecture Search" }
         ]
     },
-
-    // // Download Options
-    // downloads: {
-    //     completeList: {
-    //         title: "Complete Publication List",
-    //         description: "PDF containing all publications from the lab",
-    //         filename: "ai-thena-publications-complete.pdf",
-    //         icon: "📄"
-    //     },
-    //     bibtex: {
-    //         title: "BibTeX File",
-    //         description: "Citations for all publications in BibTeX format",
-    //         filename: "ai-thena-publications.bib",
-    //         icon: "📊"
-    //     },
-    //     recent: {
-    //         title: "Recent Highlights",
-    //         description: "Overview of recent high-impact publications",
-    //         filename: "ai-thena-recent-highlights.pdf",
-    //         icon: "⭐"
-    //     }
-    // },
-
-    // // Metrics Display
-    // metrics: {
-    //     showCitations: true,
-    //     showHIndex: true,
-    //     showAwards: true,
-    //     showTrends: true,
-    //     citationSource: "Google Scholar",
-    //     lastUpdated: "December 1, 2024"
-    // },
-
-    // // Related Links
-    // relatedLinks: [
-    //     {
-    //         title: "Google Scholar Profile",
-    //         url: "https://scholar.google.com/citations?user=lab-profile",
-    //         icon: "🎓"
-    //     },
-    //     {
-    //         title: "DBLP Profile",
-    //         url: "https://dblp.org/lab-profile",
-    //         icon: "📚"
-    //     },
-    //     {
-    //         title: "arXiv Submissions",
-    //         url: "https://arxiv.org/search/?query=ai-thena-lab",
-    //         icon: "📝"
-    //     },
-    //     {
-    //         title: "GitHub Repositories",
-    //         url: "https://github.com/ai-thena",
-    //         icon: "💻"
-    //     }
-    // ]
 };

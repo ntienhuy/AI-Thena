@@ -147,74 +147,10 @@ const CONFIG_RESEARCH = {
     // Collaborations
     collaborations: {
         academic: [
-            {
-                name: "MIT CSAIL",
-                logo: "images/partners/mit.png",
-                url: "https://csail.mit.edu",
-                description: "Computer vision and robotics research",
-                projects: ["Project Athena", "3D Vision"],
-                since: 2018
-            },
         ],
         industry: [
-            {
-                name: "Google Research",
-                logo: "images/partners/google.png",
-                url: "#",
-                description: "Large language models and efficient AI",
-                projects: ["Project Athena", "Efficient Transformers"],
-                since: 2019,
-                funding: "$2M"
-            },
         ]
     },
 
-    // // Research Resources
-    // resources: {
-    //     facilities: [
-    //         {
-    //             name: "GPU Cluster",
-    //             description: "256 NVIDIA A100 GPUs for large-scale training",
-    //             icon: "🖥️"
-    //         },
-    //         {
-    //             name: "Robotics Lab",
-    //             description: "State-of-the-art robotics testing facility",
-    //             icon: "🤖"
-    //         },
-    //         {
-    //             name: "VR/AR Lab",
-    //             description: "Equipment for immersive AI research",
-    //             icon: "🥽"
-    //         }
-    //     ],
-    //     datasets: [
-    //         {
-    //             name: "AI-THENA Vision Dataset",
-    //             size: "10M images",
-    //             description: "Annotated images for computer vision research",
-    //             link: "#"
-    //         },
-    //         {
-    //             name: "Multilingual Corpus",
-    //             size: "100B tokens",
-    //             description: "Text data in 50+ languages",
-    //             link: "#"
-    //         }
-    //     ],
-    //     software: [
-    //         {
-    //             name: "THENA-ML Framework",
-    //             description: "Our open-source deep learning framework",
-    //             stars: 2500,
-    //             link: "https://github.com/ai-thena/thena-ml"
-    //         },
-    //         {
-    //             name: "AutoML Toolkit",
-    //             description: "Tools for automated machine learning",
-    //             stars: 1800,
-    //             link: "https://github.com/ai-thena/automl"
-    //         }
-    //     ]
-    // }
+    
 };
